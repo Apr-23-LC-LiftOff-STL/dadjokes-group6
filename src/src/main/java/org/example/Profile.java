@@ -12,14 +12,18 @@ public class Profile extends AbstractEntity{
     private String username;
 
     @NotNull
+    private String email;
+
+    @NotNull
     private String pwHash;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public Profile() {}
 
-    public Profile(String username, String password) {
+    public Profile(String username, String email, String password) {
         this.username = username;
+        this.email = email;
         this.pwHash = encoder.encode(password);
     }
 
