@@ -1,4 +1,4 @@
-package org.example;
+package org.controllers;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
