@@ -11,6 +11,8 @@ public class Profile extends AbstractEntity{
     @NotNull
     private String username;
 
+
+
     @NotNull
     private String email;
 
@@ -29,6 +31,10 @@ public class Profile extends AbstractEntity{
 
     public String getUsername() {
         return username;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public boolean isMatchingPassword(String password) {
