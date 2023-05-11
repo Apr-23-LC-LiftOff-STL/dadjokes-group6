@@ -169,8 +169,8 @@
 }
 
 .c-tab_view.thin_line {
-  width: 420px;
-  height: 65vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0);
   border-width: 3px;
   border-color: #f0e8df;
@@ -181,13 +181,15 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   box-shadow: inset 0 9px 4px rgba(0, 0, 0, .2);
 }
 
 .c-nav_menu {
   z-index: 10;
-  width: 500px;
+  width: 40%;
   height: 120px;
   max-width: 100%;
   background-color: #f0e8df;
@@ -208,6 +210,7 @@
 }
 
 .c-nav {
+  width: 100%;
   padding-top: 30px;
 }
 
@@ -261,6 +264,16 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+.c-nav_links.profile {
+  padding-top: 20px;
+  padding-left: 20px;
+  position: fixed;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: auto;
+}
+
 .tab-link-get-joke.c-nav_links {
   background-color: rgba(0, 0, 0, 0);
   justify-content: center;
@@ -279,8 +292,8 @@
 }
 
 .c-tab_content {
-  width: 100%;
-  height: 670px;
+  width: 100vw;
+  height: 100%;
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
@@ -290,8 +303,11 @@
 }
 
 .tab-pane-get-jokes {
-  width: 450px;
+  width: 70vw;
   height: 100%;
+  align-self: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tab-pane-top-jokes {
@@ -300,12 +316,17 @@
 }
 
 .tab-pane-my-jokes {
-  width: 500px;
-  height: 65vh;
+  width: 70vw;
+  height: 100%;
   top: 10px;
 }
 
-.tab-pane-submit-joke, .tab-pane-about-r-d-d {
+.tab-pane-submit-joke {
+  width: 70vw;
+  height: 100%;
+}
+
+.tab-pane-about-r-d-d {
   width: 100%;
   height: 100%;
 }
@@ -314,7 +335,7 @@
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding-top: 20px;
   display: flex;
   position: relative;
@@ -326,6 +347,7 @@
   background-color: #f0e8df;
   border: 10px solid #f2d49b;
   border-radius: 20px;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
   padding-top: 0;
@@ -351,7 +373,7 @@
   margin-right: auto;
   padding-top: 15px;
   padding-bottom: 15px;
-  display: flex;
+  display: none;
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
@@ -407,18 +429,18 @@
 }
 
 .c-joke_action_post {
-  width: 75%;
+  width: 30%;
   height: 15%;
   background-color: #f0e8df;
   border: 0 solid #f0e8df;
   border-radius: 20px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-self: center;
   align-items: center;
   margin: 10px auto 0;
-  padding: 10px 15px;
-  display: none;
+  padding: 20px;
+  display: flex;
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
@@ -455,11 +477,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  display: block;
+  display: flex;
 }
 
 .c-joke-action.optional {
   display: block;
+}
+
+.c-joke-action.hide {
+  display: none;
 }
 
 .c-joke_credit_text {
@@ -470,9 +496,9 @@
 }
 
 .c-joke_credit {
-  justify-content: flex-start;
-  padding-left: 75px;
-  display: none;
+  justify-content: center;
+  padding-left: 0;
+  display: flex;
 }
 
 .c-joke_credit_user_text {
@@ -492,7 +518,7 @@
 }
 
 .c-joke_get {
-  width: 60%;
+  width: 30%;
   height: 15%;
   background-color: rgba(0, 0, 0, 0);
   border: 0 #f0e8df;
@@ -502,9 +528,9 @@
   align-self: center;
   align-items: center;
   margin: 20px auto;
-  padding: 0;
+  padding: 0 20px;
   text-decoration: none;
-  display: none;
+  display: block;
 }
 
 .c-joke_get_link {
@@ -566,7 +592,7 @@
   margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: none;
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
@@ -596,6 +622,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 100px;
   padding-top: 0;
   padding-left: 15px;
   padding-right: 15px;
@@ -624,7 +651,7 @@
   font-family: "Fa solid 900", sans-serif;
   font-size: 60px;
   line-height: 60px;
-  display: flex;
+  display: none;
   position: static;
   top: 0;
 }
@@ -654,6 +681,344 @@
 .div-block-3 {
   width: 100%;
   height: 100%;
+  display: flex;
+}
+
+.div-block-4 {
+  width: 40vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.text-block-8 {
+  font-size: 50px;
+}
+
+.tab-pane-profile {
+  width: 70vw;
+  height: 100%;
+}
+
+.c-profile_static {
+  width: 90%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-profile-username_usertext {
+  width: 100%;
+  height: 10vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile_username {
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.c-profile_username_label {
+  color: #f0e8df;
+  margin-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c-joke_punchline_icon_text-copy {
+  height: auto;
+  color: #210140;
+  text-align: center;
+  letter-spacing: 0;
+  align-items: center;
+  padding-bottom: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+  display: flex;
+}
+
+.c-profile_username_text_dynamic {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.c-profile_email {
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.c-profile_password_label {
+  color: #f0e8df;
+  margin-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c-profile-email_div {
+  width: 100%;
+  height: 10vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile_email_usertext {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.c-profile_password {
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.c-profile-password_div {
+  width: 100%;
+  height: 10vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile_password_usertext {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.c-profile_edit_button_save {
+  width: 30%;
+  height: 10%;
+  min-height: 50px;
+  min-width: 30%;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.c-profile_edit_button_text {
+  color: #f0e8df;
+  font-family: cubano, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.c-profile_edit {
+  width: 90%;
+  height: 100100000000%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-profile_edit_button_cancel_text {
+  color: #f0e8df;
+  font-family: cubano, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.c-profile_edit_button_cancel {
+  width: 30%;
+  height: 10%;
+  min-height: 50px;
+  min-width: 30%;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.form-block {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+.c-profile_edit_buttons {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.form {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.c-my-jokes, .c-submit-joke {
+  width: 90%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-submit-joke_form_block {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+.c-submit-joke_form {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.c-submit-joke-setup_div {
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+}
+
+.c-submit-joke_setup_label {
+  color: #f0e8df;
+  margin-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c-submit-joke_setup_field {
+  width: 100%;
+  height: 20vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-submit-joke_setup_usertext {
+  height: 90%;
+  flex: 0 auto;
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.c-submit-joke_punchline_div {
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.c-submit-joke_punchline_label {
+  color: #f0e8df;
+  margin-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c-submit-joke_punchline_field {
+  width: 100%;
+  height: 20vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-submit-joke_punchline_usertext {
+  height: 90%;
+  margin-bottom: 0;
+}
+
+.c-submit-joke_submit_button {
+  width: 30%;
+  height: 10%;
+  min-height: 50px;
+  min-width: 30%;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: cubano, sans-serif;
+  font-size: 20px;
   display: flex;
 }
 
@@ -988,6 +1353,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .c-profile-username_usertext {
+    width: 100%;
+    height: auto;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .c-joke_punchline_icon_text-copy {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 100%;
+  }
+
+  .c-profile-email_div, .c-profile-password_div, .c-submit-joke_setup_field, .c-submit-joke_punchline_field {
+    width: 100%;
+    height: auto;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
