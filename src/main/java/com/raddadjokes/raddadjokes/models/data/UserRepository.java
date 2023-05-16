@@ -1,4 +1,4 @@
-package com.raddadjokes.raddadjokes.controllers;
+package com.raddadjokes.raddadjokes.models.data;
 
 import com.raddadjokes.raddadjokes.Profile;
 import org.springframework.data.repository.CrudRepository;
