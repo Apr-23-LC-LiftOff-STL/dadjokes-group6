@@ -41,6 +41,11 @@ public class JokeModel {
             this.punchline = punchline;
         }
 
+        public Joke(String setup, String punchline) {
+
+        }
+
+
         public int getId() {
             return id;
         }
