@@ -6,8 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    @Bean
-    public JokeRepository jokeRepository() {
-        // Create and return an instance of JokeRepository
-        return new JokeRepository();
+//    @Bean
+//    public JokeRepository jokeRepository() {
+//        // Create and return an instance of JokeRepository
+//        return new JokeRepository();
+//    }
 }
