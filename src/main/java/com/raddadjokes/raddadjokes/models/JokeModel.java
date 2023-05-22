@@ -14,8 +14,8 @@ public class JokeModel extends AbstractEntity {
     private static String punchline;
 
     public String JokeInput(String setup, String punchline) {
-        JokeModel.setup = setup;
-        JokeModel.punchline = punchline;
+        this.setup = setup;
+        this.punchline = punchline;
         return setup + "|" + punchline;
         //to return use return_value.split("|") gives array of values
     }
