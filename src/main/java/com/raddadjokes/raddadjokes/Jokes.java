@@ -40,10 +40,6 @@ public class Jokes extends AbstractEntity {
         //to return use return_value.split("|") gives array of values
     }
 
-    public Integer getJoke_id() {
-        return joke_id;
-    }
-
     public String getSetup() {
         return setup;
     }
@@ -68,13 +64,14 @@ public class Jokes extends AbstractEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Jokes)) return false;
+        if (!super.equals(o)) return false;
         Jokes jokes = (Jokes) o;
-        return getJoke_id().equals(jokes.getJoke_id()) && getSetup().equals(jokes.getSetup()) && Objects.equals(getPunchline(), jokes.getPunchline()) && Objects.equals(getApi_id(), jokes.getApi_id());
+        return getSetup().equals(jokes.getSetup()) && Objects.equals(getPunchline(), jokes.getPunchline()) && Objects.equals(getApi_id(), jokes.getApi_id()) && Objects.equals(user_id, jokes.user_id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getJoke_id(), getSetup(), getPunchline(), getApi_id());
+        return Objects.hash(super.hashCode(), getSetup(), getPunchline(), getApi_id(), user_id);
     }
 
     @Override

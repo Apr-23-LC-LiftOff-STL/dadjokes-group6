@@ -4,12 +4,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.raddadjokes.raddadjokes.AbstractEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Table(name = "profiles")
 @Entity
-public class Users extends AbstractEntity {
+public class Profiles extends AbstractEntity {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,8 +34,8 @@ public class Users extends AbstractEntity {
     @Size(min = 8, max = 20, message = "Your email address must be between 8 and 40 characters.")
     private String email;
 
-    public Users() {}
-    public Users(String username, String pwHash, String email) {
+    public Profiles() {}
+    public Profiles(String username, String pwHash, String email) {
         this.username = username;
         this.pwHash = encoder.encode(pwHash);
         this.email = email;
@@ -68,9 +68,9 @@ public class Users extends AbstractEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Users)) return false;
+        if (!(o instanceof Profiles)) return false;
         if (!super.equals(o)) return false;
-        Users users = (Users) o;
+        Profiles users = (Profiles) o;
         return getUsername().equals(users.getUsername()) && getPwHash().equals(users.getPwHash()) && getEmail().equals(users.getEmail());
     }
 
