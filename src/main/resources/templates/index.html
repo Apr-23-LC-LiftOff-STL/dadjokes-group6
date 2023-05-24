@@ -1,5 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
-<!--  Last Published: Wed May 24 2023 21:38:28 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Wed May 24 2023 21:50:28 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6450562c80fac7932754d2b2" data-wf-site="6450562c80fac7c43a54d2b1">
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
     <div id="c-header" class="c-header">
         <div id="profile" class="c-header_user_icon"></div><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo">
     </div>
-    <div data-current="Get Jokes" data-easing="ease" data-duration-in="300" data-duration-out="100" class="c-nav w-tabs">
+    <div data-current="My Jokes" data-easing="ease" data-duration-in="300" data-duration-out="100" class="c-nav w-tabs">
         <div class="c-nav_menu w-tab-menu">
             <a data-w-tab="Top Jokes" data-w-id="188c393a-0a73-b8ae-cf33-5d9e697e6530" class="tab-link-top-jokes c-nav_links w-inline-block w-tab-link">
                 <div class="c-nav_buttons">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </a>
-            <a data-w-tab="My Jokes" data-w-id="188c393a-0a73-b8ae-cf33-5d9e697e6533" class="tab-link-my-jokes c-nav_links w-inline-block w-tab-link">
+            <a data-w-tab="My Jokes" data-w-id="188c393a-0a73-b8ae-cf33-5d9e697e6533" class="tab-link-my-jokes c-nav_links w-inline-block w-tab-link w--current">
                 <div class="c-nav_buttons">
                     <div class="c-nav_button_inactive">
                         <div class="c-nav_icon">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </a>
-            <a data-w-tab="Get Jokes" data-w-id="188c393a-0a73-b8ae-cf33-5d9e697e6536" class="tab-link-get-joke c-nav_links w-inline-block w-tab-link w--current">
+            <a data-w-tab="Get Jokes" data-w-id="188c393a-0a73-b8ae-cf33-5d9e697e6536" class="tab-link-get-joke c-nav_links w-inline-block w-tab-link">
                 <div class="c-nav_buttons">
                     <div class="c-nav_button_inactive">
                         <div class="c-nav_icon">
@@ -126,20 +126,20 @@
             </a>
         </div>
         <div class="c-tab_content w-tab-content">
-            <div data-w-tab="My Jokes" class="tab-pane-my-jokes w-tab-pane">
+            <div data-w-tab="My Jokes" class="tab-pane-my-jokes w-tab-pane w--tab-active">
                 <div class="c-tab_view">
                     <div class="c-tab_view thin_line">
-                        <div data-current="Sign In" data-easing="ease" data-duration-in="300" data-duration-out="100" class="c-tab-my-jokes w-tabs">
+                        <div data-current="Sign Up" data-easing="ease" data-duration-in="300" data-duration-out="100" class="c-tab-my-jokes w-tabs">
                             <div class="c-tabs-menu-my-jokes w-tab-menu">
-                                <a data-w-tab="Sign In" class="tab-link-created-jokes w-inline-block w-tab-link w--current">
+                                <a data-w-tab="Sign In" class="tab-link-created-jokes w-inline-block w-tab-link">
                                     <div class="c-tab-menu-created-jokes-text">Created Jokes</div>
                                 </a>
-                                <a data-w-tab="Sign Up" class="tab-link-saved-jokes w-inline-block w-tab-link">
+                                <a data-w-tab="Sign Up" class="tab-link-saved-jokes w-inline-block w-tab-link w--current">
                                     <div class="c-tab-menu-saved-jokes-text">Saved Jokes</div>
                                 </a>
                             </div>
                             <div class="c-tab-content-my-jokes w-tab-content">
-                                <div data-w-tab="Sign In" class="tab-pane-created-jokes w-tab-pane w--tab-active">
+                                <div data-w-tab="Sign In" class="tab-pane-created-jokes w-tab-pane">
                                     <ul id="created-jokes-list" role="list" class="c-my-jokes-list w-list-unstyled">
                                         <li class="c-my-jokes-list-item">What is Spiderman&#x27;s dream job? Web Designer.</li>
                                         <li class="c-my-jokes-list-item">What do you call a Subaru in reverse? Ur a bus.</li>
@@ -150,7 +150,7 @@
                                         <li class="c-my-jokes-list-item">How do you find Will Smith in the snow? You follow the fresh prints.</li>
                                     </ul>
                                 </div>
-                                <div data-w-tab="Sign Up" class="tab-pane-saved-jokes w-tab-pane">
+                                <div data-w-tab="Sign Up" class="tab-pane-saved-jokes w-tab-pane w--tab-active">
                                     <ul id="saved-jokes-list" role="list" class="c-my-jokes-list w-list-unstyled">
                                         <li class="c-my-jokes-list-item">What is Spiderman&#x27;s dream job? Web Designer.</li>
                                         <li class="c-my-jokes-list-item">What do you call a Subaru in reverse? Ur a bus.</li>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
             </div>
-            <div data-w-tab="Get Jokes" class="tab-pane-get-jokes w-tab-pane w--tab-active">
+            <div data-w-tab="Get Jokes" class="tab-pane-get-jokes w-tab-pane">
                 <div class="c-tab_view">
                     <div class="c-tab_view thin_line">
                         <div class="c-joke">
