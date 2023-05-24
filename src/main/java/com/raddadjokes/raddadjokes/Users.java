@@ -4,15 +4,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.raddadjokes.raddadjokes.AbstractEntity;
 
 @Table(name = "profiles")
 @Entity
-public class Users {
+public class Users extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
-    private Integer user_id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(nullable = false, updatable = false)
+//    private Integer user_id;
 
     @NotBlank(message = "A username is required.")
     @Size(min = 3, max = 20, message = "Your username must be between 3 and 20 characters.")
@@ -21,23 +23,22 @@ public class Users {
     @NotBlank(message = "A password is required.")
     @Size(min = 8, max = 20, message = "Your password must be between 8 and 20 characters.")
     @Column(name = "user_Password")
-    private String pwhash;
+    private String pwHash;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
+    }
 
     @NotBlank(message = "An email address is required.")
     @Size(min = 8, max = 20, message = "Your email address must be between 8 and 40 characters.")
     private String email;
 
     public Users() {}
-    public Users(String username, String pwhash, String email) {
+    public Users(String username, String pwHash, String email) {
         this.username = username;
-        this.pwhash = pwhash;
+        this.pwHash = encoder.encode(pwHash);
         this.email = email;
-    }
-
-    public Integer getUser_id() {
-        return user_id;
     }
 
     public String getUsername() {
@@ -48,12 +49,12 @@ public class Users {
         this.username = username;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getPwHash() {
+        return pwHash;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public void setPwHash(String pwHash) {
+        this.pwHash = pwHash;
     }
 
     public String getEmail() {
@@ -68,21 +69,20 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Users)) return false;
+        if (!super.equals(o)) return false;
         Users users = (Users) o;
-        return Objects.equals(getUser_id(), users.getUser_id()) && Objects.equals(getUsername(), users.getUsername()) && Objects.equals(getUser_password(), users.getUser_password()) && Objects.equals(getEmail(), users.getEmail());
+        return getUsername().equals(users.getUsername()) && getPwHash().equals(users.getPwHash()) && getEmail().equals(users.getEmail());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUser_id(), getUsername(), getUser_password(), getEmail());
+        return Objects.hash(super.hashCode(), getUsername(), getPwHash(), getEmail());
     }
 
     @Override
     public String toString() {
         return "Profiles{" +
-                "user_id=" + user_id +
-                ", username='" + username + '\'' +
-                ", user_password='" + user_password + '\'' +
+                "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

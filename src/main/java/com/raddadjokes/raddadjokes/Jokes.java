@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Table(name = "jokes")
 @Entity
-public class Jokes {
+public class Jokes extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
-    private Integer joke_id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(nullable = false, updatable = false)
+//    private Integer joke_id;
 
     @NotBlank(message = "The joke field cannot be blank.")
     @Size(min = 10, max = 4000, message = "The joke must be between 10 and 4000 characters.")
@@ -24,6 +24,7 @@ public class Jokes {
     @Size(max = 20, message = "Your password must be between 8 and 20 characters.")
     private String punchline;
 
+    @Column(updatable = false)
     private String api_id;
 
     @OneToOne(cascade = CascadeType.ALL)
