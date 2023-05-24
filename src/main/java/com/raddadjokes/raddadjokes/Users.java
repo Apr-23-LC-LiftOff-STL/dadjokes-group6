@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Table(name = "profiles")
 @Entity
@@ -31,7 +30,6 @@ public class Users {
     private String email;
 
     public Users() {}
-
     public Users(String username, String pwhash, String email) {
         this.username = username;
         this.pwhash = pwhash;
