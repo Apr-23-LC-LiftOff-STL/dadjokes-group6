@@ -146,7 +146,7 @@
 
 .c-tab_view {
   width: 100%;
-  height: 65vh;
+  height: 70vh;
   text-align: left;
   background-color: #bf533b;
   border: 15px solid #210140;
@@ -176,21 +176,25 @@
   border-color: #f0e8df;
   border-radius: 17px;
   flex-flow: column;
-  justify-content: center;
+  justify-content: space-around;
   align-self: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
   display: flex;
   box-shadow: inset 0 9px 4px rgba(0, 0, 0, .2);
+}
+
+.c-tab_view.thin_line.about {
+  justify-content: flex-start;
 }
 
 .c-nav_menu {
   z-index: 10;
   width: 40%;
-  height: 120px;
+  height: 12%;
   max-width: 100%;
   background-color: #f0e8df;
   border: 2px solid #f0e8df;
@@ -211,7 +215,7 @@
 
 .c-nav {
   width: 100%;
-  padding-top: 30px;
+  padding-top: 0;
 }
 
 .c-nav_buttons {
@@ -274,6 +278,10 @@
   right: auto;
 }
 
+.c-nav_links.profile.w--current {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .tab-link-get-joke.c-nav_links {
   background-color: rgba(0, 0, 0, 0);
   justify-content: center;
@@ -294,10 +302,13 @@
 .c-tab_content {
   width: 100vw;
   height: 100%;
+  outline-offset: 0px;
+  border: 0 #000;
+  outline: 3px #333;
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 0;
+  margin-bottom: auto;
   padding-bottom: 0;
   display: flex;
 }
@@ -318,16 +329,11 @@
 .tab-pane-my-jokes {
   width: 70vw;
   height: 100%;
-  top: 10px;
+  top: 0;
 }
 
-.tab-pane-submit-joke {
+.tab-pane-submit-joke, .tab-pane-about-r-d-d {
   width: 70vw;
-  height: 100%;
-}
-
-.tab-pane-about-r-d-d {
-  width: 100%;
   height: 100%;
 }
 
@@ -358,8 +364,8 @@
 }
 
 .c-joke_punchline_pre {
-  width: 52%;
-  height: 30%;
+  width: 30%;
+  height: 25%;
   cursor: pointer;
   background-color: #f0e8df;
   border: 10px solid #f2d49b;
@@ -368,12 +374,12 @@
   justify-content: center;
   align-self: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   padding-top: 15px;
   padding-bottom: 15px;
-  display: none;
+  display: flex;
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
@@ -386,7 +392,7 @@
   text-align: center;
   padding-top: 11px;
   font-family: "Fa 400", sans-serif;
-  font-size: 92px;
+  font-size: 80px;
   line-height: 100%;
 }
 
@@ -440,7 +446,7 @@
   align-items: center;
   margin: 10px auto 0;
   padding: 20px;
-  display: flex;
+  display: none;
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
@@ -474,6 +480,7 @@
 }
 
 .c-joke-action {
+  cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -498,11 +505,12 @@
 .c-joke_credit {
   justify-content: center;
   padding-left: 0;
-  display: flex;
+  display: none;
 }
 
 .c-joke_credit_user_text {
   color: #f0e8df;
+  cursor: auto;
   font-family: Montserrat, sans-serif;
   font-weight: 600;
   text-decoration: underline;
@@ -523,14 +531,14 @@
   background-color: rgba(0, 0, 0, 0);
   border: 0 #f0e8df;
   border-radius: 20px;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-self: center;
   align-items: center;
   margin: 20px auto;
   padding: 0 20px;
   text-decoration: none;
-  display: block;
+  display: none;
 }
 
 .c-joke_get_link {
@@ -553,6 +561,7 @@
 .c-joke_get_line {
   width: 93%;
   height: 54px;
+  cursor: pointer;
   background-color: #0c0852;
   border: 2px solid #f0e8df;
   border-radius: 20px;
@@ -580,7 +589,7 @@
 }
 
 .c-joke_skip {
-  width: 40%;
+  width: 30%;
   height: 10%;
   background-color: #f0e8df;
   border: 7px solid #f2d49b;
@@ -589,10 +598,8 @@
   justify-content: center;
   align-self: center;
   align-items: center;
-  margin-top: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  display: none;
+  margin: 20px auto 40px;
+  display: flex;
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
@@ -709,16 +716,18 @@
   width: 90%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  display: none;
+  padding-top: 20px;
+  display: flex;
 }
 
 .c-profile-username_usertext {
   width: 100%;
-  height: 10vh;
+  height: auto;
+  min-height: 50px;
   background-color: #f0e8df;
-  border: 10px solid #f2d49b;
+  border: 8px solid #f2d49b;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -732,18 +741,23 @@
 
 .c-profile_username {
   width: 80%;
-  height: 15%;
+  height: 20%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  margin-bottom: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
   display: flex;
 }
 
 .c-profile_username_label {
+  height: auto;
   color: #f0e8df;
-  margin-bottom: 10px;
-  font-family: cubano, sans-serif;
-  font-size: 30px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -769,26 +783,30 @@
 
 .c-profile_email {
   width: 80%;
-  height: 15%;
+  height: 20%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  margin-bottom: 10px;
   display: flex;
 }
 
 .c-profile_password_label {
+  height: auto;
   color: #f0e8df;
-  margin-bottom: 10px;
-  font-family: cubano, sans-serif;
-  font-size: 30px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
   font-weight: 800;
 }
 
 .c-profile-email_div {
   width: 100%;
-  height: 10vh;
+  height: auto;
+  min-height: 50px;
   background-color: #f0e8df;
-  border: 10px solid #f2d49b;
+  border: 8px solid #f2d49b;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -806,21 +824,23 @@
   font-weight: 600;
 }
 
-.c-profile_password {
+.c-profile_new_password {
   width: 80%;
-  height: 15%;
+  height: 30%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   display: flex;
 }
 
 .c-profile-password_div {
   width: 100%;
-  height: 10vh;
+  height: auto;
+  min-height: 50px;
   background-color: #f0e8df;
-  border: 10px solid #f2d49b;
+  border: 8px solid #f2d49b;
   border-radius: 20px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -832,27 +852,32 @@
 }
 
 .c-profile_password_usertext {
+  align-items: center;
   font-family: Montserrat, sans-serif;
   font-size: 24px;
   font-weight: 600;
+  display: block;
 }
 
 .c-profile_edit_button_save {
-  width: 30%;
-  height: 10%;
+  width: 40%;
+  height: auto;
   min-height: 50px;
-  min-width: 30%;
+  min-width: 150px;
+  cursor: pointer;
   background-color: #210140;
   border: 4px solid #f0e8df;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
 }
 
 .c-profile_edit_button_text {
   color: #f0e8df;
-  font-family: cubano, sans-serif;
+  font-family: cubano-sharp, sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
@@ -861,28 +886,34 @@
   width: 90%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
 }
 
-.c-profile_edit_button_cancel_text {
+.c-profile-edit_button_cancel_text {
+  height: auto;
   color: #f0e8df;
-  font-family: cubano, sans-serif;
+  font-family: cubano-sharp, sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
 
-.c-profile_edit_button_cancel {
-  width: 30%;
-  height: 10%;
+.c-profile-edit_button_cancel {
+  width: 40%;
+  height: auto;
   min-height: 50px;
-  min-width: 30%;
+  min-width: 150px;
+  cursor: pointer;
   background-color: #210140;
   border: 4px solid #f0e8df;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
 }
 
@@ -896,8 +927,11 @@
 }
 
 .c-profile_edit_buttons {
-  width: 100%;
-  justify-content: center;
+  width: 70%;
+  height: 10%;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
 }
 
@@ -906,11 +940,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding-top: 0;
   display: flex;
 }
 
-.c-my-jokes, .c-submit-joke {
+.c-my-jokes {
   width: 90%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-submit-joke {
+  width: 100%;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
@@ -972,6 +1016,7 @@
   flex: 0 auto;
   align-self: center;
   margin-bottom: 0;
+  font-family: Montserrat, sans-serif;
 }
 
 .c-submit-joke_punchline_div {
@@ -1009,6 +1054,7 @@
 .c-submit-joke_punchline_usertext {
   height: 90%;
   margin-bottom: 0;
+  font-family: Montserrat, sans-serif;
 }
 
 .c-submit-joke_submit_button {
@@ -1026,28 +1072,33 @@
   display: flex;
 }
 
-.c-profile_password_confirm {
+.c-profile_new_password_confirm {
   width: 80%;
-  height: 15%;
+  height: 20%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-bottom: 10px;
   display: flex;
 }
 
 .c-profile_password_confirm_label {
+  height: auto;
   color: #f0e8df;
-  margin-bottom: 10px;
-  font-family: cubano, sans-serif;
-  font-size: 30px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
   font-weight: 800;
+  line-height: 20px;
 }
 
 .c-profile-password_confirm_div {
   width: 100%;
-  height: 10vh;
+  height: auto;
+  min-height: 50px;
   background-color: #f0e8df;
-  border: 10px solid #f2d49b;
+  border: 8px solid #f2d49b;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -1066,12 +1117,740 @@
 }
 
 .c-profile_edit_password_field, .c-profile_edit_password_confirm_field {
+  height: auto;
+  cursor: text;
   margin-bottom: 0;
 }
 
-.text-field, .text-field-2 {
+.c-profile-edit-username-field, .c-profile-edit-email-field {
+  height: auto;
+  cursor: text;
   align-self: auto;
   margin-bottom: 0;
+}
+
+.c-profile_current_password {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.c-profile_edit_current_password_field-copy {
+  height: auto;
+  cursor: text;
+  margin-bottom: 0;
+}
+
+.c-profile_email_label {
+  color: #f0e8df;
+  margin-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c-edit-profile-fields {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: auto;
+  display: flex;
+  overflow: visible;
+}
+
+.c-profile-user-data {
+  width: 100%;
+  height: 80%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.c-profile-edit-password_confirm_div {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: #f0e8df;
+  border: 8px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile-edit-password_div, .c-profile-edit-current-password_div {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: #f0e8df;
+  border: 8px solid #f2d49b;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile-edit-new-password {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.c-profile-edit-email_div, .c-profile-edit-username {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: #f0e8df;
+  border: 8px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile-edit-header {
+  color: #f0e8df;
+  text-align: center;
+  text-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  line-height: 40px;
+  text-decoration: none;
+}
+
+.tab-link-sign-in---sign-up {
+  display: none;
+}
+
+.tab-pane-sign-in---sign-up {
+  width: 70%;
+  height: 100%;
+}
+
+.c-tab-sign-in-sign-up {
+  width: 50%;
+  height: 90%;
+  outline-offset: -7px;
+  border: 10px solid #f0e8df;
+  border-radius: 20px;
+  outline: 4px solid #210140;
+  position: relative;
+}
+
+.tabs-menu {
+  width: 100%;
+  height: 10%;
+  justify-content: space-around;
+  display: flex;
+}
+
+.tab-link-sign-in {
+  width: 50%;
+  background-color: #b7b5b1;
+  border-top-left-radius: 10px;
+}
+
+.tab-link-sign-in:active {
+  background-color: #f0e8df;
+}
+
+.tab-link-sign-in.w--current {
+  width: 50%;
+  background-color: #f0e8df;
+  border-top-left-radius: 10px;
+}
+
+.tab-link-sign-up {
+  width: 50%;
+  color: #b7b5b2;
+  background-color: #b7b5b2;
+  border-top-right-radius: 10px;
+}
+
+.tab-link-sign-up.w--current {
+  background-color: #f0e8df;
+}
+
+.text-block-9, .text-block-10 {
+  color: #210140;
+  text-align: center;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 18px;
+}
+
+.tab-pane-sign-in {
+  width: 100%;
+  height: 100%;
+  -webkit-text-fill-color: inherit;
+  object-fit: fill;
+  background-color: rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 0;
+}
+
+.tabs-content {
+  height: 90%;
+  background-color: #f0e8df;
+  border: 0 rgba(0, 0, 0, 0);
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.tab-pane-sign-up {
+  height: 100%;
+  background-color: #f0e8df;
+}
+
+.field-label {
+  font-family: Montserrat, sans-serif;
+}
+
+.form-block-2 {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: block;
+}
+
+.form-block-3 {
+  padding-top: 40px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.c-sign-in-button {
+  width: 40%;
+  height: auto;
+  min-height: 50px;
+  min-width: 150px;
+  opacity: 1;
+  outline-offset: 0px;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  outline: 3px #a6382e;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.sign-in-form {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.c-sign-in-form {
+  height: 100%;
+}
+
+.sign-in-form-copy {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.sign-up-form {
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.field-label-2, .field-label-3 {
+  font-family: Montserrat, sans-serif;
+}
+
+.form-block-4 {
+  height: 100%;
+  padding-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.c-sign-up-button {
+  width: 40%;
+  height: auto;
+  min-height: 50px;
+  min-width: 150px;
+  opacity: 1;
+  outline-offset: 0px;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  outline: 3px #a6382e;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.c-tab-my-jokes {
+  width: 95%;
+  height: 90%;
+  outline-offset: -7px;
+  border: 10px solid #f0e8df;
+  border-radius: 20px;
+  outline: 4px solid #210140;
+  position: relative;
+}
+
+.c-tabs-menu-my-jokes {
+  width: 100%;
+  height: 10%;
+  justify-content: space-around;
+  display: flex;
+}
+
+.tab-link-created-jokes {
+  width: 50%;
+  background-color: #b7b5b1;
+  border-top-left-radius: 10px;
+}
+
+.tab-link-created-jokes:active {
+  background-color: #f0e8df;
+}
+
+.tab-link-created-jokes.w--current {
+  width: 50%;
+  background-color: #f0e8df;
+  border-top-left-radius: 10px;
+}
+
+.tab-link-saved-jokes {
+  width: 50%;
+  color: #b7b5b2;
+  background-color: #b7b5b2;
+  border-top-right-radius: 10px;
+}
+
+.tab-link-saved-jokes.w--current {
+  background-color: #f0e8df;
+}
+
+.c-tab-menu-created-jokes-text, .c-tab-menu-saved-jokes-text {
+  color: #210140;
+  text-align: center;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 18px;
+}
+
+.c-tab-content-my-jokes {
+  height: 90%;
+  background-color: #f0e8df;
+  border: 0 rgba(0, 0, 0, 0);
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.tab-pane-created-jokes {
+  width: 100%;
+  height: 100%;
+  -webkit-text-fill-color: inherit;
+  object-fit: fill;
+  background-color: rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 0;
+}
+
+.tab-pane-saved-jokes {
+  height: 100%;
+  background-color: #f0e8df;
+}
+
+.c-my-jokes-list {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  overflow: scroll;
+}
+
+.c-my-jokes-list-item {
+  width: 95%;
+  height: 20%;
+  min-height: 60px;
+  text-align: center;
+  background-color: #f2d4ae;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  display: flex;
+}
+
+.c-profile_edit_button {
+  width: 40%;
+  height: auto;
+  min-height: 50px;
+  min-width: 150px;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.c-profile-edit_username {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+
+.c-profile-edit_email {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.c-profile-edit_new_password {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.c-profile-edit_password_label {
+  height: auto;
+  color: #f0e8df;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.c-profile-edit_new_password_confirm {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.c-profile-edit_buttons {
+  width: 70%;
+  height: 10%;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.c-profile_edit_button_save_text {
+  height: auto;
+  color: #f0e8df;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.c-profile_emails_label {
+  height: auto;
+  color: #f0e8df;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.c-profile-edit_old_password {
+  width: 80%;
+  height: 20%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.div-block-5 {
+  width: 100%;
+  height: 25%;
+}
+
+.c-about-div {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.c-about-div.how {
+  height: 100%;
+}
+
+.c-about-div.who {
+  height: 100%;
+  object-fit: fill;
+  overflow: scroll;
+}
+
+.c-about-h2 {
+  width: 90%;
+  color: #f0e8df;
+  text-shadow: 0 3px 2px rgba(0, 0, 0, .2);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 26px;
+}
+
+.c-about-text {
+  width: 90%;
+  color: #f0e8df;
+  font-family: Montserrat, sans-serif;
+}
+
+.c-about-list {
+  width: 90%;
+  height: 100%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  color: #f0e8df;
+  text-align: left;
+  flex-direction: column;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
+  align-content: start;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: start;
+  margin-bottom: 0;
+  padding-left: 10px;
+  display: grid;
+}
+
+.list-item {
+  height: 100%;
+}
+
+.c-about-h3 {
+  color: #f0e8df;
+  text-shadow: 0 3px 2px rgba(0, 0, 0, .2);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+}
+
+.c-about-team-slider {
+  width: 90%;
+  color: #0c0852;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: stretch;
+  display: none;
+}
+
+.c-team-slider-card {
+  width: 0%;
+  color: #0c0852;
+  background-color: #0c0852;
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+.slide-2 {
+  width: 30%;
+}
+
+.mask {
+  width: 10%;
+  color: #0c0852;
+}
+
+.c-about-team-grid {
+  width: 95%;
+  height: 100%;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template: "Adria-Gratiot Josh-Linn"
+                 "Jacob-Dawdy Mitchell-Kilpatrick"
+                 "Joshua-Jackson TaTanisha-Wagoner"
+                 / 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+  overflow: scroll;
+}
+
+.c-about-team-card {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  background-color: #0c0852;
+  border: 3px solid #f0e8df;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.c-about-stack {
+  width: 90%;
+  border-top: 2px solid #f0e8df;
+  border-bottom: 2px solid #f0e8df;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+}
+
+.c-about-team-card-header {
+  width: 100%;
+  height: 30%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  display: flex;
+}
+
+.c-about-team-card-linkedin {
+  width: 20%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+.c-about-team-card-name {
+  width: 90%;
+  color: #f0e8df;
+  text-align: left;
+  white-space: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: cubano-sharp, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.bold-text {
+  float: none;
+  clear: none;
+  text-align: left;
+  font-size: 20px;
+}
+
+.text-block-11 {
+  color: #f0e8df;
+  text-align: center;
+  font-family: "Fa brands 400", sans-serif;
+  font-size: 40px;
+}
+
+.c-about-team-card-role {
+  color: #f0e8df;
+  margin-top: 5px;
+  font-family: Montserrat, sans-serif;
+}
+
+.c-about-div-static-info {
+  display: flex;
+}
+
+.c-about-team-card-github {
+  width: 20%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+@media screen and (max-width: 991px) {
+  .c-nav_menu {
+    min-width: 400px;
+  }
+
+  .c-joke_action_post {
+    min-width: 200px;
+  }
+
+  .c-joke_get {
+    min-width: 150px;
+    flex-direction: row;
+  }
+
+  .c-joke_get_line {
+    min-width: 150px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-tab_view {
+    height: 50vh;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -1166,8 +1945,9 @@
   }
 
   .c-tab_view {
-    width: 96vw;
-    height: 55vh;
+    width: 100%;
+    height: 50vh;
+    flex-direction: column;
     justify-content: flex-start;
   }
 
@@ -1178,8 +1958,9 @@
   }
 
   .c-nav_menu {
-    width: 100vw;
+    width: 95vw;
     height: 90px;
+    min-width: 250px;
     justify-content: space-between;
     line-height: 20px;
   }
@@ -1221,7 +2002,7 @@
     justify-content: center;
     align-items: center;
     font-size: 11px;
-    display: flex;
+    display: none;
     overflow: visible;
   }
 
@@ -1256,6 +2037,8 @@
   }
 
   .tab-pane-get-jokes {
+    width: 90vw;
+    height: 100%;
     flex: none;
     align-self: auto;
     padding-top: 0;
@@ -1268,12 +2051,12 @@
   }
 
   .c-joke {
-    width: 97%;
+    width: 95%;
   }
 
   .c-joke_setup {
     width: 100%;
-    height: auto;
+    height: 30%;
     border-width: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -1284,7 +2067,7 @@
     height: auto;
     margin-top: 20px;
     margin-bottom: 0;
-    display: flex;
+    display: none;
   }
 
   .c-joke_punchline_icon {
@@ -1298,7 +2081,7 @@
     width: 100%;
     text-align: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 100%;
   }
 
@@ -1312,7 +2095,7 @@
   .c-joke_action_post {
     width: 90%;
     border: 0 #f2d49b;
-    display: none;
+    display: flex;
   }
 
   .c-joke_credit_text {
@@ -1323,15 +2106,16 @@
   .c-joke_credit {
     width: 100%;
     justify-content: center;
+    margin-top: 10px;
     padding-left: 0;
-    display: none;
+    display: flex;
   }
 
   .c-joke_get {
     width: 60%;
     margin-top: auto;
     margin-bottom: auto;
-    display: none;
+    display: flex;
   }
 
   .c-joke_get_link {
@@ -1346,7 +2130,7 @@
   .c-joke_skip {
     width: 60%;
     margin-top: 40px;
-    display: flex;
+    display: none;
     position: absolute;
     top: auto;
     bottom: 5%;
@@ -1383,7 +2167,7 @@
     margin-top: 0;
     font-size: 40px;
     line-height: 50px;
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     bottom: auto;
@@ -1423,13 +2207,30 @@
     line-height: 100%;
   }
 
-  .c-profile-email_div, .c-profile-password_div, .c-submit-joke_setup_field, .c-submit-joke_punchline_field, .c-profile-password_confirm_div {
+  .c-profile-email_div, .c-profile-password_div, .c-submit-joke_setup_field, .c-submit-joke_punchline_field, .c-profile-password_confirm_div, .c-profile-edit-password_confirm_div, .c-profile-edit-password_div, .c-profile-edit-current-password_div, .c-profile-edit-email_div, .c-profile-edit-username {
     width: 100%;
     height: auto;
     border-width: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+#w-node-_069be70a-695a-1fd7-dc9f-afb8e51833dd-2754d2b2, #w-node-_100ecebb-7b30-2a14-b50e-72e072173415-2754d2b2, #w-node-_4298ff4b-e31b-fb7d-3f79-0ba7e7c030f7-2754d2b2, #w-node-_5aecfcb8-4556-02d4-a544-6f0336c0f569-2754d2b2 {
+  justify-self: start;
+}
+
+#w-node-ce3356cc-94a6-ea99-1aab-1f1f92d23cad-2754d2b2, #w-node-e23fd52f-180b-0e77-1f04-365d1b600a4f-2754d2b2 {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+  justify-self: start;
+}
+
+#w-node-c0ff9ff4-5e49-6f97-933f-f3211a44ce59-2754d2b2 {
+  grid-area: Adria-Gratiot;
+}
+
+#w-node-d2eb342d-5f6b-fa1a-fe28-3a06a1962e1a-2754d2b2, #w-node-_8542a46c-be97-d3c8-615f-651e86cfe4c7-2754d2b2, #w-node-_99a05373-250a-58ac-df3c-c51c59494c6e-2754d2b2, #w-node-_8098645f-93d3-32c2-d2bc-993031491aac-2754d2b2, #w-node-_67e658a5-961b-63f9-03e1-a255f1a69d23-2754d2b2 {
+  grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
 
