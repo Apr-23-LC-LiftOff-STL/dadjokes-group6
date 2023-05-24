@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Table(name = "profiles")
 @Entity
@@ -20,7 +21,10 @@ public class Users {
 
     @NotBlank(message = "A password is required.")
     @Size(min = 8, max = 20, message = "Your password must be between 8 and 20 characters.")
-    private String user_password;
+    @Column(name = "user_Password")
+    private String pwhash;
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @NotBlank(message = "An email address is required.")
     @Size(min = 8, max = 20, message = "Your email address must be between 8 and 40 characters.")
@@ -28,9 +32,9 @@ public class Users {
 
     public Users() {}
 
-    public Users(String username, String user_password, String email) {
+    public Users(String username, String pwhash, String email) {
         this.username = username;
-        this.user_password = user_password;
+        this.pwhash = pwhash;
         this.email = email;
     }
 

@@ -26,7 +26,7 @@ public class Jokes {
 
     private String api_id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private Integer user_id;
 
