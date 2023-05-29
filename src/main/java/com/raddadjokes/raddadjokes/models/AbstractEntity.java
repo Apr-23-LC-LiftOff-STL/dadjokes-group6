@@ -1,4 +1,4 @@
-package models;
+package com.raddadjokes.raddadjokes.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

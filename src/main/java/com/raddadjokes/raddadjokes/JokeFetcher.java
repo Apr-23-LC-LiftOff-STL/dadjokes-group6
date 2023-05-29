@@ -1,6 +1,6 @@
 package com.raddadjokes.raddadjokes;
 
-import models.Jokes;
+import com.raddadjokes.raddadjokes.models.Jokes;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONException;
