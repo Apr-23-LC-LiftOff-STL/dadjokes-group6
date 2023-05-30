@@ -4,7 +4,7 @@ import com.raddadjokes.raddadjokes.models.Jokes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+//reverted to pre-bean error.
 //created development-mitchell branch
 
 @SpringBootApplication
