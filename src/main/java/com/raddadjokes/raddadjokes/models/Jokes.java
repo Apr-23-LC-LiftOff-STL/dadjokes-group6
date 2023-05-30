@@ -12,19 +12,22 @@ public class Jokes extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, name = "joke_id")
     private Integer joke_id;
 
     @NotBlank(message = "The joke setup field cannot be blank.")
     @Size(min = 5, max = 4000, message = "The joke setup must be between 5 and 4000 characters.")
+    @Column(nullable = false, name = "setup")
     private String setup;
 
     @Size(max = 4000, message = "The joke punchline must be less than 4000 characters.")
+    @Column(nullable = true, name = "punchline")
     private String punchline;
 
-    @Column(updatable = false)
+    @Column(updatable = false, nullable = true, name = "api_id")
     private String api_id;
 
+    //should this be a ManyToOne or OneToMany? One user_id can be associated with many jokes, right?
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private Integer user_id;
@@ -35,6 +38,7 @@ public class Jokes extends AbstractEntity {
     public Jokes() {}
 
     public Jokes(String setup, String punchline) {
+        this();
         this.setup = setup;
         this.punchline = punchline;
         //return setup + "|" + punchline;
@@ -42,6 +46,7 @@ public class Jokes extends AbstractEntity {
     }
 
     public Jokes(Integer user_id, String setup, String punchline, String api_id, Boolean nsfw) {
+        this();
         this.user_id = user_id;
         this.setup = setup;
         this.punchline = punchline;

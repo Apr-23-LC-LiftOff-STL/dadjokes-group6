@@ -35,6 +35,7 @@ public class Profiles extends AbstractEntity {
 
     public Profiles() {}
     public Profiles(String username, String pwHash, String email) {
+        this();
         this.username = username;
         this.pwHash = encoder.encode(pwHash);
         this.email = email;
