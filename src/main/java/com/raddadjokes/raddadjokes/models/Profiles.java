@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Table(name = "profiles")
 @Entity
-public class Profiles extends AbstractEntity {
+public class Profiles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Table(name = "jokes")
 @Entity
-public class Jokes extends AbstractEntity {
+public class Jokes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,14 +21,14 @@ public class Jokes extends AbstractEntity {
     private String setup;
 
     @Size(max = 4000, message = "The joke punchline must be less than 4000 characters.")
-    @Column(nullable = true, name = "punchline")
+//    @Column(nullable = true, name = "punchline")
     private String punchline;
 
     @Column(updatable = false, nullable = true, name = "api_id")
     private String api_id;
 
     //should this be a ManyToOne or OneToMany? One user_id can be associated with many jokes, right?
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private Integer user_id;
 
