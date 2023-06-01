@@ -1,8 +1,12 @@
 package com.raddadjokes.raddadjokes.controllers;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 
 import com.raddadjokes.raddadjokes.Profile;
+import com.raddadjokes.raddadjokes.data.ProfilesRepository;
+import com.raddadjokes.raddadjokes.models.Profiles;
 import com.raddadjokes.raddadjokes.models.data.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +18,9 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    private ProfileRepository userRepository;
+    private ProfilesRepository userRepository;
+
+    private static Map<String, Profiles> sessionStore = new HashMap<>();
 
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
@@ -23,7 +29,8 @@ public class LoginController {
         boolean authenticated = authenticateUser(username, password);
 
         if (authenticated) {
-            String sessionId = generateSessionId();
+            Profiles user = userRepository.findByUsername(username);
+            String sessionId = generateSessionId(user);
             session.setAttribute("sessionId", sessionId);
             // ...
             return "redirect:/index";
@@ -32,23 +39,24 @@ public class LoginController {
             return "redirect:/login";
         }
     }
+
     public boolean authenticateUser(String username, String password) {
         // Retrieve the user by username from the UserRepository
-        Profile user = userRepository.findByUsername(username);
+        Profiles user = userRepository.findByUsername(username);
 
         // Check if the user exists and the provided password matches
         return user != null && user.isMatchingPassword(password);
 
-
-
     }
 
-    public static String generateSessionId() {
+    public static String generateSessionId(Profiles user) {
         // Generate a random UUID (Universally Unique Identifier)
         UUID uuid = UUID.randomUUID();
 
         // Remove hyphens from the UUID string
         String sessionId = uuid.toString().replace("-", "");
+
+        sessionStore.put(sessionId, user);
 
         return sessionId;
     }
