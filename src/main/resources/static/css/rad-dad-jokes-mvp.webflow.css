@@ -1,0 +1,1377 @@
+.w-checkbox {
+  margin-bottom: 5px;
+  padding-left: 20px;
+  display: block;
+}
+
+.w-checkbox:before {
+  content: " ";
+  grid-area: 1 / 1 / 2 / 2;
+  display: table;
+}
+
+.w-checkbox:after {
+  content: " ";
+  clear: both;
+  grid-area: 1 / 1 / 2 / 2;
+  display: table;
+}
+
+.w-checkbox-input {
+  float: left;
+  margin: 4px 0 0 -20px;
+  line-height: normal;
+}
+
+.w-checkbox-input--inputType-custom {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.w-checkbox-input--inputType-custom.w--redirected-checked {
+  background-color: #3898ec;
+  background-image: url('https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-color: #3898ec;
+}
+
+.w-checkbox-input--inputType-custom.w--redirected-focus {
+  box-shadow: 0 0 3px 1px #3898ec;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 44px;
+}
+
+.c-submit-joke_setup_field {
+  width: 100%;
+  height: 20vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-my-jokes-header {
+  color: #f0e8df;
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+  font-family: cubano-sharp, sans-serif;
+}
+
+.c-edit-profile-form-button {
+  width: 30%;
+  height: 100%;
+  min-height: 50px;
+  min-width: 190px;
+  color: #f0e8df;
+  text-align: center;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 22px;
+  text-decoration: none;
+  display: flex;
+  box-shadow: 0 7px 5px rgba(0, 0, 0, .2);
+}
+
+.c-joke-text {
+  height: auto;
+  color: #210140;
+  text-align: center;
+  letter-spacing: 0;
+  align-items: center;
+  padding-bottom: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+  display: flex;
+}
+
+.mask {
+  width: 10%;
+  color: #0c0852;
+}
+
+.c-main-background {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  background-color: #f0e8df;
+  background-image: radial-gradient(circle, #f2d49b 16%, #f0e8df 96%);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.c-edit-profile-fields {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: auto;
+  display: flex;
+  overflow: scroll;
+}
+
+.c-profile {
+  width: 90%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 0;
+  display: flex;
+}
+
+.c-team-slider-card {
+  width: 0%;
+  color: #0c0852;
+  background-color: #0c0852;
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+.c-my-jokes-joke-delete {
+  color: #a6382e;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Fa Solid 900", sans-serif;
+  font-size: 40px;
+  display: flex;
+}
+
+.c-about-h2 {
+  width: 90%;
+  color: #f0e8df;
+  text-shadow: 0 3px 2px rgba(0, 0, 0, .2);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 26px;
+}
+
+.c-profile-user-data {
+  width: 100%;
+  height: 60%;
+  min-height: 250px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.list-item {
+  height: 100%;
+}
+
+.c-sign-in-form {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.c-submit-joke-input-div {
+  width: 80%;
+  height: 20vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+  display: flex;
+}
+
+.c-submit-joke-input-div.nsfw {
+  height: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-my-jokes-joke-list {
+  width: 90%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: 3px #f2d4ae;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+  padding-bottom: 10px;
+  display: flex;
+  overflow: scroll;
+}
+
+.c-about-team-card-linkedin {
+  width: 20%;
+  height: 100%;
+  color: #f0e8df;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fa Brands 400", sans-serif;
+  font-size: 40px;
+  text-decoration: none;
+  display: flex;
+}
+
+.c-edit-profile-form-input {
+  height: auto;
+  cursor: text;
+  align-self: auto;
+  margin-bottom: 0;
+}
+
+.c-submit-joke-submit-button {
+  width: 30%;
+  height: 10%;
+  min-height: 50px;
+  min-width: 30%;
+  color: #f0e8df;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: cubano, sans-serif;
+  font-size: 28px;
+  display: flex;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+}
+
+.c-sign-in-button {
+  width: 40%;
+  height: auto;
+  min-height: 50px;
+  min-width: 150px;
+  opacity: 1;
+  outline-offset: 0px;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  outline: 3px #a6382e;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 24px;
+  display: flex;
+}
+
+.c-joke-action {
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-joke-action.hide {
+  display: none;
+}
+
+.c-profile-user-text-data {
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
+  color: #210140;
+  background-color: #f0e8df;
+  border: 8px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.bold-text {
+  float: none;
+  clear: none;
+  text-align: left;
+  font-size: 20px;
+}
+
+.c-sign-in-form-block {
+  width: 70%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+}
+
+.c-profile-field-box {
+  width: 80%;
+  height: 30%;
+  min-height: 80px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+
+.c-main-div {
+  width: 80%;
+  height: 70vh;
+  text-align: left;
+  background-color: #bf533b;
+  border: 15px solid #210140;
+  border-radius: 35px;
+  flex-flow: column;
+  flex: 0 auto;
+  order: 0;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  box-shadow: 0 8px 5px rgba(0, 0, 0, .2), inset 0 5px 4px rgba(0, 0, 0, .2);
+}
+
+.c-main-div.border {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border-width: 3px;
+  border-color: #f0e8df;
+  border-radius: 17px;
+  flex-flow: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  box-shadow: inset 0 9px 4px rgba(0, 0, 0, .2);
+}
+
+.c-submit-joke-punchline-field {
+  width: 100%;
+  height: 20vh;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-about-team-card-github {
+  width: 20%;
+  height: 100%;
+  color: #f0e8df;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fa Brands 400", sans-serif;
+  font-size: 40px;
+  text-decoration: none;
+  display: flex;
+}
+
+.c-about-text {
+  width: 90%;
+  color: #f0e8df;
+  font-family: Montserrat, sans-serif;
+}
+
+.c-joke_credit_text_spacer {
+  width: 10px;
+  height: 20px;
+}
+
+.c-about-list {
+  width: 90%;
+  height: 100%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  color: #f0e8df;
+  text-align: left;
+  flex-direction: column;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
+  align-content: start;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: start;
+  margin-bottom: 0;
+  padding-left: 10px;
+  display: grid;
+}
+
+.c-sign-in-form-label {
+  color: #f0e8df;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 24px;
+}
+
+.c-edit-profile-form-buttons-wrapper {
+  width: 70%;
+  height: 10%;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.c-joke_credit {
+  height: 20%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding-left: 0;
+  font-size: 18px;
+  display: flex;
+  position: static;
+}
+
+.c-my-jokes-div {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+}
+
+.c-joke_action_icon {
+  height: 40px;
+  color: #210140;
+  text-align: center;
+  letter-spacing: 0;
+  align-items: center;
+  padding-bottom: 0;
+  font-family: "Fa Solid 900", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 18px;
+  display: flex;
+  transform: rotate(0);
+}
+
+.c-my-jokes-joke-div {
+  width: 90%;
+  height: 15%;
+  max-height: 110px;
+  min-height: 70px;
+  background-color: #f2d4ae;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: flex;
+}
+
+.c-sign-up-button {
+  width: 40%;
+  height: auto;
+  min-height: 50px;
+  min-width: 150px;
+  opacity: 1;
+  outline-offset: 0px;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  outline: 3px #a6382e;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+  display: flex;
+  box-shadow: 0 7px 5px rgba(0, 0, 0, .2);
+}
+
+.c-about-team-card {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  background-color: #0c0852;
+  border: 3px solid #f0e8df;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.c-edit-profile-form-block {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.c-joke_action_post {
+  width: 30%;
+  height: 15%;
+  background-color: #f0e8df;
+  border: 0 solid #f0e8df;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+  align-items: center;
+  margin: 10px auto 0;
+  padding: 20px;
+  display: none;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.c-big-button {
+  width: 40%;
+  height: 15%;
+  color: #000;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  text-decoration: none;
+  display: flex;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+}
+
+.c-about-div {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.c-about-div.who {
+  height: 100%;
+  object-fit: fill;
+  overflow: scroll;
+}
+
+.c-about-div.how {
+  height: 100%;
+}
+
+.c-header_logo {
+  width: 150px;
+  align-self: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+  text-decoration: none;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+}
+
+.c-about-team-grid {
+  width: 95%;
+  height: 100%;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template: "Adria-Gratiot Josh-Linn"
+                 "Jacob-Dawdy Mitchell-Kilpatrick"
+                 "Joshua-Jackson TaTanisha-Wagoner"
+                 / 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+  overflow: scroll;
+}
+
+.c-about-h3 {
+  color: #f0e8df;
+  text-shadow: 0 3px 2px rgba(0, 0, 0, .2);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+}
+
+.c-joke_action_text {
+  height: 14px;
+  color: #210140;
+  text-align: center;
+  letter-spacing: 0;
+  align-items: center;
+  padding-bottom: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+  display: flex;
+}
+
+.c-my-jokes-joke-text {
+  width: 85%;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  display: flex;
+}
+
+.c-about-team-slider {
+  width: 90%;
+  color: #0c0852;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: stretch;
+  display: none;
+}
+
+.c-nav-bar-button-text {
+  color: #210140;
+  text-align: center;
+  -webkit-text-stroke-width: 0px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.c-nav-bar-button-text.active {
+  color: #a6382e;
+}
+
+.c-about-team-card-header {
+  width: 100%;
+  height: 30%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  display: flex;
+}
+
+.c-about-div-static-info {
+  display: flex;
+}
+
+.c-profile-form-input-label {
+  height: auto;
+  color: #f0e8df;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.c-submit-joke {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-edit-profile-form {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  display: flex;
+}
+
+.c-nav-bar-button {
+  width: 15%;
+  color: #210140;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.c-nav-bar-button.profile {
+  cursor: pointer;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  position: fixed;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: auto;
+}
+
+.c-nav-bar-button.active.w--current {
+  color: #a6382e;
+}
+
+.c-header {
+  width: 100%;
+  height: auto;
+  color: #210140;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+}
+
+.c-joke-credit-username-text {
+  color: #f0e8df;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.c-about-team-card-role {
+  color: #f0e8df;
+  margin-top: 5px;
+  font-family: Montserrat, sans-serif;
+}
+
+.c-submit-joke-form-block {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+  display: flex;
+}
+
+.c-about-team-card-name {
+  width: 90%;
+  color: #f0e8df;
+  text-align: center;
+  white-space: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: cubano-sharp, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.c-profile-header {
+  color: #f0e8df;
+  text-align: center;
+  text-shadow: 0 6px 10px rgba(0, 0, 0, .2);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 32px;
+  line-height: 20px;
+  text-decoration: none;
+  display: flex;
+}
+
+.c-joke {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  display: flex;
+  position: relative;
+}
+
+.c-submit-joke-label {
+  height: 30px;
+  color: #f0e8df;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: cubano, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  display: flex;
+}
+
+.c-submit-joke-form-input {
+  height: 90%;
+  cursor: text;
+  flex: 0 auto;
+  align-self: center;
+  margin-bottom: 0;
+  font-family: Montserrat, sans-serif;
+}
+
+.c-submit-joke-form {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-joke_credit_text {
+  color: #f0e8df;
+  letter-spacing: 1px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.c-div-text-wrapper-cream {
+  width: 90%;
+  height: 80%;
+  background-color: #f0e8df;
+  border: 10px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+}
+
+.c-about-stack {
+  width: 90%;
+  border-top: 2px solid #f0e8df;
+  border-bottom: 2px solid #f0e8df;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+}
+
+.c-big-button-text {
+  color: #f0e8df;
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.c-joke-content {
+  height: 70%;
+  flex-direction: column;
+  display: flex;
+}
+
+.c-nav-bar {
+  width: 40%;
+  height: 120px;
+  min-height: 100px;
+  background-color: #f0e8df;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: fixed;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  box-shadow: 0 -7px 10px rgba(0, 0, 0, .2);
+}
+
+.c-nav-bar-button-icon {
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: "Fa Solid 900", sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+  text-decoration: none;
+}
+
+.c-nav-bar-button-icon.profile {
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  display: flex;
+}
+
+.c-nav-bar-button-icon.active {
+  color: #a6382e;
+}
+
+.c-header-logo-link.w--current {
+  cursor: pointer;
+}
+
+.c-submit-joke-checkbox-div {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.c-submit-joke-checkboxes {
+  width: 20%;
+  justify-content: space-between;
+  display: flex;
+}
+
+.c-submit-joke-input-checkbox {
+  width: 40%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.c-submit-joke-checkbox-label {
+  color: #f0e8df;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 20px;
+}
+
+.c-sign-in-form-input {
+  height: 10%;
+  border-radius: 20px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+}
+
+.text-block-13, .text-block-14 {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+}
+
+.link {
+  width: 100%;
+  height: 10%;
+  color: #f0e8df;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  display: flex;
+}
+
+.c-sign-up-form-block {
+  width: 70%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+}
+
+.c-sign-up-form {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.c-sign-up-form-label {
+  color: #f0e8df;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, .2);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 24px;
+}
+
+.text-block-15 {
+  font-family: Open Sans, sans-serif;
+  font-size: 20px;
+}
+
+.link-2 {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.text-block-16 {
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+}
+
+.c-edit-profile {
+  width: 90%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 0;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.c-edit-profile-form-input-box {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: #f0e8df;
+  border: 8px solid #f2d49b;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
+.text-block-18 {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+}
+
+.text-block-19 {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+}
+
+.c-profile-button {
+  width: 30%;
+  height: 10%;
+  min-height: 40px;
+  min-width: 190px;
+  color: #f0e8df;
+  text-align: center;
+  cursor: pointer;
+  background-color: #210140;
+  border: 4px solid #f0e8df;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto 40px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 22px;
+  text-decoration: none;
+  display: flex;
+  box-shadow: 0 7px 5px rgba(0, 0, 0, .2);
+}
+
+.c-profile-field-label {
+  height: auto;
+  color: #f0e8df;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 22px;
+}
+
+.heading {
+  color: #f0e8df;
+  text-align: center;
+  text-shadow: 0 3px 1px rgba(0, 0, 0, .2);
+  margin-top: auto;
+  margin-bottom: 0;
+  font-family: cubano-sharp, sans-serif;
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .c-joke_action_post {
+    min-width: 200px;
+  }
+
+  .c-big-button {
+    min-width: 150px;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-main-div {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .c-submit-joke_setup_field {
+    width: 100%;
+    height: auto;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .c-joke-text {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 100%;
+  }
+
+  .c-profile-user-text-data {
+    width: 100%;
+    height: auto;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .c-main-div {
+    width: 100%;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .c-main-div.border {
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+  }
+
+  .c-submit-joke-punchline-field {
+    width: 100%;
+    height: auto;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .c-joke_credit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    padding-left: 0;
+    display: flex;
+  }
+
+  .c-joke_action_post {
+    width: 90%;
+    border: 0 #f2d49b;
+    display: flex;
+  }
+
+  .c-big-button {
+    width: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+  }
+
+  .c-header_logo {
+    width: 100px;
+    align-self: auto;
+    margin-top: 0;
+    display: block;
+    position: absolute;
+    top: 0%;
+  }
+
+  .c-nav-bar-button-text {
+    display: block;
+  }
+
+  .c-nav-bar-button {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    display: flex;
+  }
+
+  .c-header {
+    height: 85px;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
+    position: relative;
+    top: 2%;
+    bottom: auto;
+    left: 0%;
+    right: 0%;
+  }
+
+  .c-joke {
+    width: 95%;
+  }
+
+  .c-joke_credit_text {
+    width: auto;
+    font-size: 12px;
+  }
+
+  .c-div-text-wrapper-cream {
+    width: 100%;
+    height: 30%;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .c-big-button-text {
+    font-size: 16px;
+  }
+
+  .c-nav-bar-button-icon {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: block;
+  }
+
+  .c-edit-profile-form-input-box {
+    width: 100%;
+    height: auto;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+#w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c2-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c4-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c6-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c8-9e3ebd5b {
+  justify-self: start;
+}
+
+#w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1ca-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1cc-9e3ebd5b {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+  justify-self: start;
+}
+
+#w-node-f30a1897-1ded-39bc-3bc8-14edea71301f-9e3ebd5b {
+  grid-area: Adria-Gratiot;
+}
+
+#w-node-f30a1897-1ded-39bc-3bc8-14edea71302c-9e3ebd5b, #w-node-f30a1897-1ded-39bc-3bc8-14edea713039-9e3ebd5b, #w-node-f30a1897-1ded-39bc-3bc8-14edea713046-9e3ebd5b, #w-node-f30a1897-1ded-39bc-3bc8-14edea713053-9e3ebd5b, #w-node-f30a1897-1ded-39bc-3bc8-14edea713060-9e3ebd5b {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+
+@font-face {
+  font-family: 'Fa Brands 400';
+  src: url('../fonts/fa-brands-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fa Regular 400';
+  src: url('../fonts/fa-regular-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fa Solid 900';
+  src: url('../fonts/fa-solid-900.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fa V 4 Compatibility';
+  src: url('../fonts/fa-v4compatibility.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

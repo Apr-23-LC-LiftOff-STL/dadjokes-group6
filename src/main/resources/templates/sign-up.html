@@ -1,9 +1,11 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
 <!--  Last Published: Thu Jun 01 2023 00:56:52 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="647540cd02da73a422472652" data-wf-site="647540cd02da73a42247264e">
+<html data-wf-page="64769b41cc0de46689d50e73" data-wf-site="647540cd02da73a42247264e">
 <head>
   <meta charset="utf-8">
-  <title>Rad Dad Jokes</title>
+  <title>Sign Up</title>
+  <meta content="Sign Up" property="og:title">
+  <meta content="Sign Up" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
@@ -25,60 +27,32 @@
       <a id="nav-button-profile" href="profile.html" class="c-nav-bar-button profile w-inline-block">
         <div class="c-nav-bar-button-icon profile"></div>
       </a>
-      <a id="nav-button-logo" href="index.html" aria-current="page" class="c-header-logo-link w-inline-block w--current"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
+      <a id="nav-button-logo" href="index.html" class="c-header-logo-link w-inline-block"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
     </div>
     <div class="c-main-div">
       <div class="c-main-div border">
-        <h1 class="heading">From the Dad-a-base...</h1>
-        <div class="c-joke">
-          <div class="c-joke-content">
-            <div class="c-div-text-wrapper-cream">
-              <div id="joke-text" class="c-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-            </div>
-            <div class="c-joke_credit">
-              <div class="c-joke_credit_text">Joke submitted by: </div>
-              <div class="c-joke_credit_text_spacer"></div>
-              <div id="joke-credit-username-text" class="c-joke-credit-username-text">Username</div>
-            </div>
+        <div class="c-sign-up-form-block w-form">
+          <form id="sign-up-form" name="wf-form-Sign-up-form" data-name="Sign-up-form" method="post" class="c-sign-up-form"><label for="sign-up-username" class="c-sign-up-form-label">Username:</label><input type="text" class="c-sign-in-form-input w-input" maxlength="256" name="name" data-name="Name" placeholder="Enter your desired username" id="sign-up-username"><label for="sign-up-email" class="c-sign-up-form-label">Email Address:</label><input type="email" class="c-sign-in-form-input w-input" maxlength="256" name="sign-up-email" data-name="sign-up-email" placeholder="Enter your email address" id="sign-up-email" required=""><label for="sign-up-password" class="c-sign-up-form-label">Password:</label><input type="password" class="c-sign-in-form-input w-input" maxlength="256" name="Password" data-name="Password" placeholder="Enter a password" id="sign-up-password" required=""><label for="sign-up-password-confirm" class="c-sign-up-form-label">Confirm Password:</label><input type="password" class="c-sign-in-form-input w-input" maxlength="256" name="Password-Confirm" data-name="Password Confirm" placeholder="Confrim your password" id="sign-up-password-confirm" required=""><input type="submit" value="Create Account" data-wait="Please wait..." id="sign-up-submit" class="c-sign-up-button w-button"></form>
+          <div class="w-form-done">
+            <div class="text-block-15">Your account has been created!</div>
+            <a href="sign-in.html" class="link-2">Click here to sign in.</a>
           </div>
-          <div class="c-joke_action_post">
-            <div class="c-joke-action">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Rad</div>
-            </div>
-            <div class="c-joke-action">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Bad</div>
-            </div>
-            <div class="c-joke-action">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Save</div>
-            </div>
-            <div class="c-joke-action hide">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Flag</div>
-            </div>
-            <div id="joke-share" class="c-joke-action hide">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Share</div>
-            </div>
+          <div class="w-form-fail">
+            <div class="text-block-16">Oops! Something went wrong while creating your account.</div>
           </div>
-        </div>
-        <div id="get-joke-next-joke-button" class="c-big-button">
-          <div class="c-big-button-text">Another One?</div>
         </div>
       </div>
     </div>
     <div id="nav-bar" class="c-nav-bar">
-      <a id="nav-button-my-jokes" href="my-jokes.html" class="c-nav-bar-button w-inline-block">
+      <a id="nav-button-my-jokes" href="my-jokes.html" class="c-nav-bar-button active w-inline-block">
         <div class="c-nav-bar-button-icon"></div>
         <div class="c-nav-bar-button-text">My<br>Jokes</div>
       </a>
-      <a id="nav-button-get-joke" href="index.html" aria-current="page" class="c-nav-bar-button active w-inline-block w--current">
-        <div class="c-nav-bar-button-icon active"></div>
-        <div class="c-nav-bar-button-text active">Get<br>Joke</div>
+      <a id="nav-button-get-joke" href="index.html" class="c-nav-bar-button w-inline-block">
+        <div class="c-nav-bar-button-icon"></div>
+        <div class="c-nav-bar-button-text">Get<br>Joke</div>
       </a>
-      <a id="nav-button-submit-joke" href="submit-joke.html" class="c-nav-bar-button w-inline-block">
+      <a id="nav-button-submit-joke" href="submit-joke.html" class="c-nav-bar-button active w-inline-block">
         <div class="c-nav-bar-button-icon"></div>
         <div class="c-nav-bar-button-text">Submit<br>Joke</div>
       </a>
