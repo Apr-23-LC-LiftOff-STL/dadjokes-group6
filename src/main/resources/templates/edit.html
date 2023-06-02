@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+</head>
+<body>
+<h1>Edit Profile</h1>
+<form action="/update_profile" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="JohnDoe" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="johndoe@example.com" required><br><br>
+
+    <label for="password">New Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="confirm_password">Confirm New Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+
+    <input type="submit" value="Save Changes">
+</form>
+</body>
+</html>
