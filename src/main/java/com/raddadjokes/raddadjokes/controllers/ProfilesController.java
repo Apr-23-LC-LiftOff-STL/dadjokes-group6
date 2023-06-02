@@ -20,7 +20,7 @@ public class ProfilesController {
     private ProfilesRepository profileRepository;
 
     @GetMapping
-    public String showProfile(Model model, HttpSession session) {
+    public String showProfiles(Model model, HttpSession session) {
 //Temp comment out
 //        String username = (String) session.getAttribute("username");
 //        Profiles profile = profileRepository.findByUsername(username);
