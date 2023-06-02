@@ -5,12 +5,12 @@ import com.raddadjokes.raddadjokes.data.ProfilesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import org.springframework.validation.Errors;
 
 @Controller
 @RequestMapping("/sign-up")
@@ -20,8 +20,19 @@ public class SignUpController {
     private ProfilesRepository profileRepository;
 
     @GetMapping
-    public String showSignIn(Model model, HttpSession session) {
-
+    public String showSignUp(Model model, HttpSession session) {
+        model.addAttribute(new Profiles());
         return "/sign-up";
+    }
+
+    @PostMapping
+    public String processSignUpForm(@ModelAttribute @Valid Profiles newProfile,
+                                    Errors errors, Model model){
+
+        if(errors.hasErrors()) {
+            return "sign-up";
+        }
+        profileRepository.save(newProfile);
+        return ("redirect:/sign-in");
     }
 }
