@@ -38,29 +38,5 @@ public class ProfileController {
         return "profile";
     }
 
-    @PostMapping("/profile/update")
-    public String updateProfile(
-            @RequestParam("username") String username,
-            @RequestParam("email") String email,
-            HttpSession session
-    ) {
-        String loggedInUsername = (String) session.getAttribute("username");
 
-        // Check if the logged-in user matches the edited profile
-        if (loggedInUsername.equals(username)) {
-            // Retrieve the user profile from the UserRepository
-            Profiles user = profileRepository.findByUsername(username);
-
-            // Update the profile with the new email
-
-            // Save the updated profile to the UserRepository
-
-            // Handle success/failure and provide appropriate feedback
-
-            return "redirect:/profile"; // Redirect back to the profile page
-        } else {
-            // Handle unauthorized access to the profile update
-            return "error"; // Return the name of the error template
-        }
-    }
 }

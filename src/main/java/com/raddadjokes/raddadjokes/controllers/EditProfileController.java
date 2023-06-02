@@ -30,29 +30,33 @@ public class EditProfileController {
         model.addAttribute("profile", profile);
 
         // Return the edit profile form view
-        return "edit-profile";
+        return "edit-profiles";
     }
 
 
-    @PostMapping("/update")
+    @PostMapping("/profile/update")
     public String updateProfile(
             @RequestParam("username") String username,
             @RequestParam("email") String email,
-            @RequestParam("password") String password
+            HttpSession session
     ) {
-        // Retrieve the profile from the repository (assuming you have the user's ID or username)
-        // For example, if you have the username, you can retrieve the profile like this:
-        // Profile profile = profileRepository.findByUsername(username);
+        String loggedInUsername = (String) session.getAttribute("username");
 
-        // Update the profile with the new values
-        // profile.setUsername(username);
-        // profile.setEmail(email);
-        // profile.setPassword(password); // Remember to hash or encrypt the password before storing
+        // Check if the logged-in user matches the edited profile
+        if (loggedInUsername.equals(username)) {
+            // Retrieve the user profile from the UserRepository
+            Profiles user = profileRepository.findByUsername(username);
 
-        // Save the updated profile to the repository
-        // profileRepository.save(profile);
+            // Update the profile with the new email
 
-        // Redirect back to the profile page
-        return "redirect:/profile";
+            // Save the updated profile to the UserRepository
+
+            // Handle success/failure and provide appropriate feedback
+
+            return "redirect:/profile"; // Redirect back to the profile page
+        } else {
+            // Handle unauthorized access to the profile update
+            return "error"; // Return the name of the error template
+        }
     }
 }
