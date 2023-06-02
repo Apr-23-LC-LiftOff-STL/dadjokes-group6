@@ -21,40 +21,39 @@ public class ProfilesController {
 
     @GetMapping
     public String showProfile(Model model, HttpSession session) {
-
-        String username = (String) session.getAttribute("username");
-
-        Profiles profile = profileRepository.findByUsername(username);
+//Temp comment out
+//        String username = (String) session.getAttribute("username");
+//        Profiles profile = profileRepository.findByUsername(username);
 
         // Add the profile to the model?
         // model.addAttribute("profile", profile);
 
 
         //alt method that works
-        model.addAttribute("username", profile.getUsername());
-        model.addAttribute("email", profile.getEmail());
+//        model.addAttribute("username", profile.getUsername());
+//        model.addAttribute("email", profile.getEmail());
 
         // Return the profile page view
-        return "profile";
+        return "/profiles";
     }
 
-    @PostMapping("/update")
-    public String updateProfile(
-            @RequestParam("username") String username,
-            @RequestParam("email") String email,
-            @RequestParam("password") String password
-    ) {
-        Profiles profile = profileRepository.findByUsername(username);
-
-        // Update the profile with the new values
-        // profile.setUsername(username);
-        // profile.setEmail(email);
-        // profile.setPassword(password);
-
-        // Save the updated profile to the repository
-        // profileRepository.save(profile);
-
-        // Redirect back to the profile page
-        return "redirect:/profile";
-    }
+//    @PostMapping("/update")
+//    public String updateProfile(
+//            @RequestParam("username") String username,
+//            @RequestParam("email") String email,
+//            @RequestParam("password") String password
+//    ) {
+//        Profiles profile = profileRepository.findByUsername(username);
+//
+//        // Update the profile with the new values
+//        // profile.setUsername(username);
+//        // profile.setEmail(email);
+//        // profile.setPassword(password);
+//
+//        // Save the updated profile to the repository
+//        // profileRepository.save(profile);
+//
+//        // Redirect back to the profile page
+//        return "redirect:/profile";
+//    }
 }
