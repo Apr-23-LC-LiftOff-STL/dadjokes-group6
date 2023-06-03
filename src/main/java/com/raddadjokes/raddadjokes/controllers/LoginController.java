@@ -4,10 +4,8 @@ import java.util.Map;
 import java.util.UUID;
 
 
-import com.raddadjokes.raddadjokes.Profile;
-import com.raddadjokes.raddadjokes.data.ProfilesRepository;
-import com.raddadjokes.raddadjokes.models.Profiles;
-import com.raddadjokes.raddadjokes.models.data.ProfileRepository;
+import com.raddadjokes.raddadjokes.data.ProfileRepository;
+import com.raddadjokes.raddadjokes.models.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,9 +16,9 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    private ProfilesRepository userRepository;
+    private ProfileRepository userRepository;
 
-    private static Map<String, Profiles> sessionStore = new HashMap<>();
+    private static Map<String, Profile> sessionStore = new HashMap<>();
 
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
@@ -29,7 +27,7 @@ public class LoginController {
         boolean authenticated = authenticateUser(username, password);
 
         if (authenticated) {
-            Profiles user = userRepository.findByUsername(username);
+            Profile user = userRepository.findByUsername(username);
             String sessionId = generateSessionId(user);
             session.setAttribute("sessionId", sessionId);
             // ...
@@ -42,14 +40,14 @@ public class LoginController {
 
     public boolean authenticateUser(String username, String password) {
         // Retrieve the user by username from the UserRepository
-        Profiles user = userRepository.findByUsername(username);
+        Profile user = userRepository.findByUsername(username);
 
         // Check if the user exists and the provided password matches
         return user != null && user.isMatchingPassword(password);
 
     }
 
-    public static String generateSessionId(Profiles user) {
+    public static String generateSessionId(Profile user) {
         // Generate a random UUID (Universally Unique Identifier)
         UUID uuid = UUID.randomUUID();
 

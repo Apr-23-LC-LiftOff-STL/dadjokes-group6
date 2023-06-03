@@ -1,22 +1,28 @@
 package com.raddadjokes.raddadjokes.controllers;
 
-import com.raddadjokes.raddadjokes.models.Profiles;
-import com.raddadjokes.raddadjokes.data.ProfilesRepository;
+import com.raddadjokes.raddadjokes.models.Profile;
+import com.raddadjokes.raddadjokes.data.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+
 
 @Controller
 @RequestMapping("/profile")
 public class EditProfileController {
     @Autowired
-    private ProfilesRepository profileRepository;
+    private ProfileRepository profileRepository;
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @GetMapping("/edit")
     public String showEditProfileForm(Model model, HttpSession session) {
@@ -24,7 +30,7 @@ public class EditProfileController {
         String username = (String) session.getAttribute("username");
 
         // Retrieve the profile from the repository based on the username
-        Profiles profile = profileRepository.findByUsername(username);
+        Profile profile = profileRepository.findByUsername(username);
 
         // Add the profile to the model
         model.addAttribute("profile", profile);
@@ -36,27 +42,46 @@ public class EditProfileController {
 
     @PostMapping("/profile/update")
     public String updateProfile(
-            @RequestParam("username") String username,
-            @RequestParam("email") String email,
-            HttpSession session
+            @Valid Profile profile,
+            BindingResult bindingResult,
+            HttpSession session,
+            Model model
     ) {
-        String loggedInUsername = (String) session.getAttribute("username");
+
+        Profile sessionUser = (Profile) session.getAttribute("user");
 
         // Check if the logged-in user matches the edited profile
-        if (loggedInUsername.equals(username)) {
-            // Retrieve the user profile from the UserRepository
-            Profiles user = profileRepository.findByUsername(username);
+        Profile user = profileRepository.findById(sessionUser.getId()).orElse(null);
 
-            // Update the profile with the new email
+        if (user != null && user.getId() == sessionUser.getId()) {
+
+            // Update the user entity with the updated profile fields
+            if (bindingResult.hasErrors()) {
+                // If there are validation errors, add them to the model
+                model.addAttribute("validationErrors", bindingResult.getAllErrors());
+            } else {
+                // Update the user entity with new profile information if the fields are not blank
+                if (profile.getUsername() != null && !profile.getUsername().isEmpty()) {
+                    user.setUsername(profile.getUsername());
+                }
+                // Update the profile with the new email
+                if (profile.getEmail() != null && !profile.getEmail().isEmpty()) {
+                    user.setEmail(profile.getEmail());
+                }
+                if (profile.getPwHash() != null && !profile.getPwHash().isEmpty()) {
+                    String passwordHash = encoder.encode(profile.getPwHash());
+                    user.setPwHash(passwordHash);
+                }
+
+            }
 
             // Save the updated profile to the UserRepository
+            profileRepository.save(user);
 
-            // Handle success/failure and provide appropriate feedback
+            session.setAttribute("user", profile);
 
             return "redirect:/profile"; // Redirect back to the profile page
-        } else {
-            // Handle unauthorized access to the profile update
-            return "error"; // Return the name of the error template
         }
+        return "redirect:/edit-profile";
     }
 }

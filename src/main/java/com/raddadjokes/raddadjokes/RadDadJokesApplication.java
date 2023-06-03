@@ -1,6 +1,6 @@
 package com.raddadjokes.raddadjokes;
 
-import com.raddadjokes.raddadjokes.models.Jokes;
+import com.raddadjokes.raddadjokes.models.Joke;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,7 +17,7 @@ public class RadDadJokesApplication {
 		String jokeJson = jokeFetcher.fetchData();
 		System.out.println(jokeJson);
 //		System.out.println(jokeJson.getClass());
-		Jokes apiJoke = jokeFetcher.parseJsonToJokes(jokeJson);
+		Joke apiJoke = jokeFetcher.parseJsonToJokes(jokeJson);
 		System.out.println(apiJoke.toString());
 	}
 

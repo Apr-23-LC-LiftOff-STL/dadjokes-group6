@@ -1,6 +1,6 @@
 package com.raddadjokes.raddadjokes;
 
-import com.raddadjokes.raddadjokes.models.Jokes;
+import com.raddadjokes.raddadjokes.models.Joke;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONException;
@@ -38,7 +38,7 @@ public class JokeFetcher {
         return null;
     }
 
-    public static Jokes parseJsonToJokes(String jsonString){
+    public static Joke parseJsonToJokes(String jsonString){
         try{
             //Parse JSON String
             JSONObject jsonObject = new JSONObject(jsonString);
@@ -62,7 +62,7 @@ public class JokeFetcher {
                 Boolean nsfw = jokeObject.getBoolean("NSFW");
 
                 //creates a new Joke with the returned values
-                Jokes apiJoke = new Jokes(user_id, setup, punchline, api_id, nsfw);
+                Joke apiJoke = new Joke(user_id, setup, punchline, api_id, nsfw);
 
                 //returns a Joke object with the values from the API call to DadJokes.io
                 return apiJoke;

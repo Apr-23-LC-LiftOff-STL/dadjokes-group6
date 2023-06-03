@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Table(name = "jokes")
 @Entity
-public class Jokes extends AbstractEntity {
+public class Joke extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,9 +35,9 @@ public class Jokes extends AbstractEntity {
     private Boolean nsfw;
 
 
-    public Jokes() {}
+    public Joke() {}
 
-    public Jokes(String setup, String punchline) {
+    public Joke(String setup, String punchline) {
         this();
         this.setup = setup;
         this.punchline = punchline;
@@ -45,7 +45,7 @@ public class Jokes extends AbstractEntity {
         //to return use return_value.split("|") gives array of values
     }
 
-    public Jokes(Integer user_id, String setup, String punchline, String api_id, Boolean nsfw) {
+    public Joke(Integer user_id, String setup, String punchline, String api_id, Boolean nsfw) {
         this();
         this.user_id = user_id;
         this.setup = setup;
@@ -91,9 +91,9 @@ public class Jokes extends AbstractEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Jokes)) return false;
+        if (!(o instanceof Joke)) return false;
         if (!super.equals(o)) return false;
-        Jokes jokes = (Jokes) o;
+        Joke jokes = (Joke) o;
         return getSetup().equals(jokes.getSetup()) && Objects.equals(getPunchline(), jokes.getPunchline()) && Objects.equals(getApi_id(), jokes.getApi_id()) && Objects.equals(user_id, jokes.user_id);
     }
 

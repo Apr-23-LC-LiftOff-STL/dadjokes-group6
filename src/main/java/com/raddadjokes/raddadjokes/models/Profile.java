@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Table(name = "profiles")
 @Entity
-public class Profiles extends AbstractEntity {
+public class Profile extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,8 +33,8 @@ public class Profiles extends AbstractEntity {
     @Size(min = 8, max = 20, message = "Your email address must be between 8 and 40 characters.")
     private String email;
 
-    public Profiles() {}
-    public Profiles(String username, String pwHash, String email) {
+    public Profile() {}
+    public Profile(String username, String pwHash, String email) {
         this();
         this.username = username;
         this.pwHash = encoder.encode(pwHash);
@@ -68,9 +68,9 @@ public class Profiles extends AbstractEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Profiles)) return false;
+        if (!(o instanceof Profile)) return false;
         if (!super.equals(o)) return false;
-        Profiles users = (Profiles) o;
+        Profile users = (Profile) o;
         return getUsername().equals(users.getUsername()) && getPwHash().equals(users.getPwHash()) && getEmail().equals(users.getEmail());
     }
 
@@ -81,7 +81,7 @@ public class Profiles extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "Profiles{" +
+        return "Profile{" +
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 '}';
