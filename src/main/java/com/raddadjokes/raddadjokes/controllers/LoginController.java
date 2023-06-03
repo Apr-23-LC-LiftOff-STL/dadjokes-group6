@@ -24,11 +24,9 @@ public class LoginController {
                         @RequestParam("password") String password,
                         HttpSession session) {
         // Perform authentication logic
-        boolean authenticated = authenticateUser(username, password);
+        String sessionId = authenticateUserAndGenerateSessionId(username, password);
 
-        if (authenticated) {
-            Profile user = userRepository.findByUsername(username);
-            String sessionId = generateSessionId(user);
+        if (sessionId != null) {
             session.setAttribute("sessionId", sessionId);
             // ...
             return "redirect:/index";
@@ -38,13 +36,16 @@ public class LoginController {
         }
     }
 
-    public boolean authenticateUser(String username, String password) {
+    public String authenticateUserAndGenerateSessionId(String username, String password) {
         // Retrieve the user by username from the UserRepository
         Profile user = userRepository.findByUsername(username);
 
         // Check if the user exists and the provided password matches
-        return user != null && user.isMatchingPassword(password);
+        if (user != null && user.isMatchingPassword(password)) {
+            return generateSessionId(user);
+        }
 
+        return null;
     }
 
     public static String generateSessionId(Profile user) {
