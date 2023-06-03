@@ -27,11 +27,18 @@ public class SignUpController {
 
     @PostMapping
     public String processSignUpForm(@ModelAttribute @Valid Profiles newProfile,
+//                                    @RequestParam("username") String username,
+//                                    @RequestParam("email") String email,
+//                                    @RequestParam("pwHash") String pwHash,
+//                                    @RequestParam("pwHashConfirm") String pwHashConfirm,
                                     Errors errors, Model model){
+//model.addAttribute("")
 
-        if(errors.hasErrors()) {
-            return "sign-up";
-        }
+//        if(errors.hasErrors()) {
+//            return "sign-up";
+//        }
+//        newProfile.setUsername(username);
+//        newProfile.setEmail(email);
         profileRepository.save(newProfile);
         return ("redirect:/sign-in");
     }

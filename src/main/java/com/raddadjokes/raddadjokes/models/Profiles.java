@@ -20,7 +20,7 @@ public class Profiles {
     private String username;
 
     @NotBlank(message = "A password is required.")
-    @Size(min = 8, max = 20, message = "Your password must be between 8 and 20 characters.")
+    @Size(min = 1, max = 20, message = "Your password must be between 8 and 20 characters.")
     @Column(name = "user_Password")
     private String pwHash;
 
@@ -30,7 +30,7 @@ public class Profiles {
     }
 
     @NotBlank(message = "An email address is required.")
-    @Size(min = 8, max = 20, message = "Your email address must be between 8 and 40 characters.")
+    @Size(min = 5, max = 40, message = "Your email address must be between 8 and 40 characters.")
     private String email;
 
     public Profiles() {}
