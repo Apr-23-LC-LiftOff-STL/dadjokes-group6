@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProfilesRepository extends CrudRepository<Profiles, Integer> {
 
-    Profiles findByUsername(String username);
+    Profiles findById(String username);
 
 }
