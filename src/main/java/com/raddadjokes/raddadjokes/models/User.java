@@ -23,13 +23,22 @@ public class User {
     private String password;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
+            name="users_roles",
+            joinColumns = @JoinColumn(
+                    name="user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name="role_id", referencedColumnName = "id"
+            )
+    )
+    private Collection<Role> roles;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
             name="user_jokes",
             joinColumns = @JoinColumn(
             name="user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name="joke_id", referencedColumnName = "id"
             )
-
     )
     private Collection<Joke> userJokes;
 
@@ -50,18 +59,17 @@ public class User {
 
 
     public User(){}
-    public User(String userName, String email, String password, Collection<Joke> userJokes) {
+    public User(String userName, String email, String password, Collection<Role> roles) {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        this.userJokes = userJokes;
+        this.roles = roles;
     }
-    public User(String userName, String email, String password) {
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-        this.userJokes = userJokes;
-    }
+//    public User(String userName, String email, String password) {
+//        this.userName = userName;
+//        this.email = email;
+//        this.password = password;
+//    }
 
     public Long getId() {
         return id;
@@ -93,6 +101,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
     public Collection<Joke> getUserJokes() {
