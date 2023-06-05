@@ -19,7 +19,8 @@ public class User {
     @NotBlank
     private String email;
     @Column(name = "password")
-    @Size(min =4, max=50, message = "Password must be between 4 and 25 characters.")
+    @NotBlank
+//    @Size(min =4, max=100, message = "Password must be between 4 and 100 characters.")
     private String password;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(

@@ -21,14 +21,15 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+//    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 //    @Autowired
     private UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
         super();
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 //    update getPassword() to use Spring Security
