@@ -57,24 +57,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
-//    Testing Bean for depricated api:
-//    Must swap WebSecurityConfigurerAdapter for SecurityFilterChain for this to work
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeHttpRequests((authz) ->
-//                        authz.anyRequest().authenticated()
-//                );
-//        // ...
-//        return http.build();
-//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests().antMatchers(
                 "/registration**",
                 "/js/**",
-                "/css/",
+                "/css/**",
                 "/img/**",
                 "/fonts/**").permitAll()
                 .anyRequest().authenticated()

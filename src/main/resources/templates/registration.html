@@ -91,7 +91,7 @@
 <!--                            </a>-->
                 </form>
 <!--            <div>-->
-<!--                <a class="link" href="/sign-in">Already have an account? Click here to sign in!</a>-->
+                <a th:unless="${param.success}" class="link" href="/sign-in">Already have an account? Click here to sign in!</a>
 <!--            </div>-->
                 <div th:if="${param.success}" class="w-form-done">
                     <div class="text-block-15">Your account has been created!</div>
