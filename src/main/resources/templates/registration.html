@@ -41,54 +41,58 @@
     <div class="c-main-div">
         <div class="c-main-div border">
             <div class="c-sign-up-form-block">
+                <h1 class="heading">Register</h1>
 <!--            <div class="c-sign-up-form-block w-form">-->
                 <form th:action="@{/registration}" class="c-sign-up-form" id="sign-up-form" method="post" th:object="${user}">
 <!--                <form class="c-sign-up-form" data-name="Sign-up-form" id="sign-up-form" method="post" name="wf-form-Sign-up-form">-->
                   <label class="c-sign-up-form-label">Username:</label>
 <!--                  <label class="c-sign-up-form-label" for="sign-up-username">Username:</label>-->
 
-                  <input th:field="${username}" class="c-sign-in-form-input w-input"
+                  <input th:field="${user.userName}" class="c-sign-in-form-input w-input"
                          id="sign-up-username"
                          maxlength="20"
                          name="name"
-                         placeholder="Enter your desired username: 4 to 25 characters."
+                         placeholder="Enter a username: 4 to 25 characters."
                          type="text">
 <!--                  <p class="error" th:errors="${profiles.username}"></p>-->
                   <label class="c-sign-up-form-label">Email Address:</label>
 <!--                    <label class="c-sign-up-form-label" for="sign-up-email">Email Address:</label>-->
-                  <input th:field="${email}" class="c-sign-in-form-input w-input" data-name="sign-up-email" id="sign-up-email"
+                  <input th:field="${user.email}" class="c-sign-in-form-input w-input" data-name="sign-up-email" id="sign-up-email"
                                                                                                       maxlength="40"
                                                                                                       name="sign-up-email"
                                                                                                       placeholder="Enter your email address:"
                                                                                                       required=""
                                                                                                       type="email">
                   <label class="c-sign-up-form-label" for="sign-up-password">Password:</label>
-                  <input th:field="${password}" class="c-sign-in-form-input w-input"
+                  <input th:field="${user.password}" class="c-sign-in-form-input w-input"
                                                                                                     data-name="Password"
                                                                                                     id="sign-up-password"
                                                                                                     maxlength="20"
                                                                                                     name="Password"
-                                                                                                    placeholder="Enter a password"
+                                                                                                    placeholder="Enter a password: 4 - 50 characters."
                                                                                                     required=""
                                                                                                     type="password">
 <!--                 STRETCH FEATURE-->
-                  <label class="c-sign-up-form-label" for="sign-up-password-confirm">Confirm Password:</label>
-
-                    <input class="c-sign-in-form-input w-input" data-name="Password Confirm" id="sign-up-password-confirm" maxlength="256"
-                        name="Password-Confirm" placeholder="Confirm your password" required=""
-                        type="password">
+<!--                  <label class="c-sign-up-form-label" for="sign-up-password-confirm">Confirm Password:</label>-->
+<!--                    <input class="c-sign-in-form-input w-input" data-name="Password Confirm" id="sign-up-password-confirm" maxlength="256"-->
+<!--                        name="Password-Confirm" placeholder="Confirm your password" required=""-->
+<!--                        type="password">-->
 
 <!--                    Create Account Button - OLD-->
-<!--                    <input class="c-sign-up-button w-button" data-wait="Please wait..." id="sign-up-submit"-->
-<!--                                           type="submit" value="Create Account">-->
+                    <input class="c-sign-up-button w-button" data-wait="Please wait..." id="sign-up-submit"
+                                           type="submit" value="Create Account">
 
 <!--                    Create Account Button - NEW-->
-                    <button type="submit" class="c-sign-up-button w-button" id="registration-submit">
-                            <a href="/login" th:href="@{/login}" class="link">
-                            Already have an account? Click here to login!
-                            </a>
-                    </button>
+<!--                    <button type="submit" class="c-sign-up-button w-button" id="registration-submit">-->
+<!--                    </button>-->
+
+<!--                        <a href="/login" th:href="@{/login}" class="link">-->
+<!--                            Already have an account? Click here to login!-->
+<!--                            </a>-->
                 </form>
+            <div>
+                <a class="link" href="/sign-in">Already have an account? Click here to sign in!</a>
+            </div>
                 <div th:if="${param.success}" class="w-form-done">
                     <div class="text-block-15">Your account has been created!</div>
                     <a class="link-2" href="/sign-in">Click here to sign in.</a>
@@ -96,9 +100,6 @@
                 <div th:if="${param.fail}" class="w-form-fail">
                     <div class="text-block-16">Oops! Something went wrong while creating your account.</div>
                 </div>
-            </div>
-            <div>
-                <a class="link" href="/sign-in">Already have an account? Click here to sign in!</a>
             </div>
         </div>
     </div>
