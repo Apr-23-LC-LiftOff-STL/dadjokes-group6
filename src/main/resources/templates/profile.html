@@ -1,7 +1,7 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
 <!--  Last Published: Thu Jun 01 2023 00:56:52 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="64769b6bc8f16ba144fbd24a" data-wf-site="647540cd02da73a42247264e" lang="en"
-      xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
   <meta charset="utf-8">
   <title>Profile</title>
@@ -29,6 +29,7 @@
         <div class="c-nav-bar-button-icon profile"></div>
       </a>
       <a id="nav-button-logo" th:href="@{/}" href="/" class="c-header-logo-link w-inline-block"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
+      <a th:href="@{/logout}" class="nav-link-logout" sec:authroize="isAuthenticated()">Logout</a>
     </div>
     <div class="c-main-div">
       <div class="c-main-div border">

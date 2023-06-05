@@ -342,7 +342,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
   display: flex;
@@ -398,6 +398,26 @@ h1 {
   justify-content: center;
   align-self: center;
   align-items: center;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  box-shadow: inset 0 9px 4px rgba(0, 0, 0, .2);
+}
+
+.c-main-div.border.login {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border-width: 3px;
+  border-color: #f0e8df;
+  border-radius: 17px;
+  flex-flow: column;
+  justify-content: flex-top;
+  align-self: center;
+  align-items: flex-top;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
@@ -626,6 +646,7 @@ h1 {
 
 .c-about-div.who {
   height: 100%;
+  width: 100%;
   object-fit: fill;
   overflow: scroll;
 }
@@ -732,6 +753,7 @@ h1 {
 
 .c-about-div-static-info {
   display: flex;
+  width: 100%;
 }
 
 .c-profile-form-input-label {
@@ -1087,6 +1109,14 @@ h1 {
   color: #210140;
 }
 
+.nav-link-logout {
+  cursor: pointer;
+  font-size: 20px;
+  color: #210140;
+  height: 10px;
+
+}
+
 .text-block-16 {
   font-family: Montserrat, sans-serif;
   font-size: 20px;
@@ -1282,10 +1312,10 @@ h1 {
   }
 
   .c-header {
-    height: 85px;
+    height: 10px;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     padding-top: 10px;
     padding-bottom: 0;
     position: relative;

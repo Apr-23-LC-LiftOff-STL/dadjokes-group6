@@ -306,6 +306,7 @@ button,
   margin: 0 0 15px;
 }
 .w-form-done {
+  margin-top: 10px;
   padding: 20px;
   text-align: center;
   background-color: #dddddd;
