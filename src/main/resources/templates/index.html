@@ -25,7 +25,7 @@
       <a id="nav-button-profile" href="/profile" class="c-nav-bar-button profile w-inline-block">
         <div class="c-nav-bar-button-icon profile"></div>
       </a>
-      <a id="nav-button-logo" href="/" aria-current="page" class="c-header-logo-link w-inline-block w--current"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
+      <a id="nav-button-logo" th:href="@{/}" href="/" aria-current="page" class="c-header-logo-link w-inline-block w--current"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
     </div>
     <div class="c-main-div">
       <div class="c-main-div border">
@@ -70,19 +70,19 @@
       </div>
     </div>
     <div id="nav-bar" class="c-nav-bar">
-      <a id="nav-button-my-jokes" href="/my-jokes" class="c-nav-bar-button w-inline-block">
+      <a id="nav-button-my-jokes" th:href="@{/my-jokes}" href="/my-jokes" class="c-nav-bar-button w-inline-block">
         <div class="c-nav-bar-button-icon"></div>
         <div class="c-nav-bar-button-text">My<br>Jokes</div>
       </a>
-      <a id="nav-button-get-joke" href="/" aria-current="page" class="c-nav-bar-button active w-inline-block w--current">
+      <a id="nav-button-get-joke" th:href="@{/}" href="/" aria-current="page" class="c-nav-bar-button active w-inline-block w--current">
         <div class="c-nav-bar-button-icon active"></div>
         <div class="c-nav-bar-button-text active">Get<br>Joke</div>
       </a>
-      <a id="nav-button-submit-joke" href="/submit-joke" class="c-nav-bar-button w-inline-block">
+      <a id="nav-button-submit-joke" th:href="@{/submit-joke}" href="/submit-joke" class="c-nav-bar-button w-inline-block">
         <div class="c-nav-bar-button-icon"></div>
         <div class="c-nav-bar-button-text">Submit<br>Joke</div>
       </a>
-      <a id="nav-button-about-rdj" href="/about" class="c-nav-bar-button w-inline-block">
+      <a id="nav-button-about-rdj" th:href="@{/about}" href="/about" class="c-nav-bar-button w-inline-block">
         <div class="c-nav-bar-button-icon"></div>
         <div class="c-nav-bar-button-text">About<br>R.D.J.</div>
       </a>
