@@ -32,6 +32,12 @@ public class Joke {
         this.apiId = apiId;
         this.nsfw = nsfw;
     }
+//    public Joke(Long userId, String setup, String punchline, Boolean nsfw) {
+//        this.userId = userId;
+//        this.setup = setup;
+//        this.punchline = punchline;
+//        this.nsfw = nsfw;
+//    }
 
     public Long getId() {
         return id;
