@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 //    STRETCH Features will require updating the save method
     @Override
     public User save(UserRegistrationDto registrationDto){
-        User user = new User(registrationDto.getUserName(), registrationDto.getEmail(), registrationDto.getPassword(), Arrays.asList(new Joke()));
+        User user = new User(registrationDto.getUserName(), registrationDto.getEmail(), registrationDto.getPassword());
 
         return userRepository.save(user);
     }

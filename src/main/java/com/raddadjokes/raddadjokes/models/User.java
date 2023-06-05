@@ -56,6 +56,12 @@ public class User {
         this.password = password;
         this.userJokes = userJokes;
     }
+    public User(String userName, String email, String password) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.userJokes = userJokes;
+    }
 
     public Long getId() {
         return id;
