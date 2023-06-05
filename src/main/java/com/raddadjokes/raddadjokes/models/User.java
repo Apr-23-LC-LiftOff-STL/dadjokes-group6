@@ -14,7 +14,7 @@ public class User {
     private Long id;
     @Column(name = "user_name", unique = true)
     @Size(min=4, max=25, message = "Username must be between 4 and 25 characters.")
-    private String userName;
+    private String username;
     @Column(name = "email", unique = true)
     @NotBlank
     private String email;
@@ -61,7 +61,7 @@ public class User {
 
     public User(){}
     public User(String userName, String email, String password, Collection<Role> roles) {
-        this.userName = userName;
+        this.username = userName;
         this.email = email;
         this.password = password;
         this.roles = roles;
@@ -80,12 +80,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
