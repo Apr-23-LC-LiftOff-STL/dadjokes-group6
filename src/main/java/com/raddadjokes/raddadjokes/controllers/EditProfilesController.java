@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/edit-profiles")
 public class EditProfilesController {
 
-    @Autowired
-    private ProfilesRepository profileRepository;
+//    @Autowired
+//    private ProfilesRepository profileRepository;
 
     @GetMapping
     public String showEditProfiles(Model model, HttpSession session) {

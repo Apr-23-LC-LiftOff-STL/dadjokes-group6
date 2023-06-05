@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/submit-joke")
 public class SubmitJokeController {
-    @Autowired
-    private JokesRepository jokesRepository;
-
-    @Autowired
-    private ProfilesRepository profilesRepository;
+//    @Autowired
+//    private JokesRepository jokesRepository;
+//
+//    @Autowired
+//    private ProfilesRepository profilesRepository;
 
     @GetMapping
     public String showSubmitJoke(Model model, HttpSession session){

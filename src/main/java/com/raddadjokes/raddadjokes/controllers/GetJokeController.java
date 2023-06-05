@@ -14,11 +14,11 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/")
 public class GetJokeController {
 
-    @Autowired
-    private JokesRepository jokesRepository;
-
-    @Autowired
-    private ProfilesRepository profilesRepository;
+//    @Autowired
+//    private JokesRepository jokesRepository;
+//
+//    @Autowired
+//    private ProfilesRepository profilesRepository;
 
     public String showGetJoke(Model model, HttpSession session){
 

@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/my-jokes")
 public class MyJokesController {
-    @Autowired
-    private JokesRepository jokesRepository;
-
-    @Autowired
-    private ProfilesRepository profilesRepository;
+//    @Autowired
+//    private JokesRepository jokesRepository;
+//
+//    @Autowired
+//    private ProfilesRepository profilesRepository;
 
     @GetMapping
     public String showMyJokes(Model model, HttpSession session){

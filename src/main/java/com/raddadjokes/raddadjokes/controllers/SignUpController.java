@@ -16,8 +16,8 @@ import org.springframework.validation.Errors;
 @RequestMapping("/sign-up")
 public class SignUpController {
 
-    @Autowired
-    private ProfilesRepository profileRepository;
+//    @Autowired
+//    private ProfilesRepository profileRepository;
 
     @GetMapping
     public String showSignUp(Model model, HttpSession session) {
@@ -25,21 +25,21 @@ public class SignUpController {
         return "/sign-up";
     }
 
-    @PostMapping
-    public String processSignUpForm(@ModelAttribute @Valid Profiles newProfile,
-//                                    @RequestParam("username") String username,
-//                                    @RequestParam("email") String email,
-//                                    @RequestParam("pwHash") String pwHash,
-//                                    @RequestParam("pwHashConfirm") String pwHashConfirm,
-                                    Errors errors, Model model){
-//model.addAttribute("")
-
-//        if(errors.hasErrors()) {
-//            return "sign-up";
-//        }
-//        newProfile.setUsername(username);
-//        newProfile.setEmail(email);
-        profileRepository.save(newProfile);
-        return ("redirect:/sign-in");
-    }
+//    @PostMapping
+//    public String processSignUpForm(@ModelAttribute @Valid Profiles newProfile,
+////                                    @RequestParam("username") String username,
+////                                    @RequestParam("email") String email,
+////                                    @RequestParam("pwHash") String pwHash,
+////                                    @RequestParam("pwHashConfirm") String pwHashConfirm,
+//                                    Errors errors, Model model){
+////model.addAttribute("")
+//
+////        if(errors.hasErrors()) {
+////            return "sign-up";
+////        }
+////        newProfile.setUsername(username);
+////        newProfile.setEmail(email);
+//        profileRepository.save(newProfile);
+//        return ("redirect:/sign-in");
+//    }
 }
