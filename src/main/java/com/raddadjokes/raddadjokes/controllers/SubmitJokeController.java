@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -41,5 +42,13 @@ public class SubmitJokeController {
         model.addAttribute("userJokes", userJokes);
 
         return ("/submit-joke");
+    }
+@PostMapping
+    public String saveJoke(Model model, Authentication authentication){
+
+    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+
+    return "redirect:/registration?success";
     }
 }

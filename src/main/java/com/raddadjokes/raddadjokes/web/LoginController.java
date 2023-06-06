@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController {
+public class LoginController {
 
     @GetMapping("/login")
     public String login() {
@@ -15,4 +15,6 @@ public class MainController {
     public String home() {
       return "index";
     }
+
+
 }

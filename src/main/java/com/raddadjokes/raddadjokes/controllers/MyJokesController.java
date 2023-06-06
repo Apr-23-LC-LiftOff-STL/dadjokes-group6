@@ -42,9 +42,6 @@ public class MyJokesController {
         model.addAttribute("user", user);
         model.addAttribute("userJokes", userJokes);
 
-
-
-
         return ("/my-jokes");
     }
 
