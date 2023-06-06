@@ -1029,8 +1029,12 @@ h1 {
 
 .c-submit-joke-checkboxes {
   width: 20%;
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
+}
+
+.c-submit-joke-user-id {
+
 }
 
 .c-submit-joke-input-checkbox {
