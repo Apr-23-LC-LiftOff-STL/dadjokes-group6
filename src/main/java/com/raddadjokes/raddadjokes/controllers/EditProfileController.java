@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/about")
-public class AboutController {
+@RequestMapping("/edit-profile")
+public class EditProfileController {
+
 
     @GetMapping
-    public String showAbout(Model model, HttpSession session){
+    public String showEditProfiles(Model model, HttpSession session) {
 
-
-        return ("/about");
+        return "/edit-profile";
     }
 }
