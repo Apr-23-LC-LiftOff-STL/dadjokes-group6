@@ -34,33 +34,18 @@
       <div class="c-main-div border">
         <div class="c-my-jokes-div">
           <h2 class="c-my-jokes-header">Created Jokes</h2>
-          <div id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
-            <div id="my-jokes-joke-box" class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
+          <div id="my-jokes-list-wrapper-empty" class="c-my-jokes-joke-list">
+            <div th:if="${userJokes.empty}" id="my-jokes-joke-box-none" class="c-my-jokes-joke-div">
+              <div class="c-my-jokes-joke-text">You don&#x27;t have any jokes...
+              <a class="link-2" th:href="@{/submit-joke}" href="/submit-joke">Click here to submit a joke!</a>
+              </div>
               <div class="c-my-jokes-joke-delete"></div>
             </div>
-            <div class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-              <div class="c-my-jokes-joke-delete"></div>
-            </div>
-            <div class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-              <div class="c-my-jokes-joke-delete"></div>
-            </div>
-            <div class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-              <div class="c-my-jokes-joke-delete"></div>
-            </div>
-            <div class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-              <div class="c-my-jokes-joke-delete"></div>
-            </div>
-            <div class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-              <div class="c-my-jokes-joke-delete"></div>
-            </div>
-            <div class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
+          </div>
+
+          <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
+            <div th:each="joke ${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div">
+              <div th:text="${joke.setup + ' ' + joke.punchline}" class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
               <div class="c-my-jokes-joke-delete"></div>
             </div>
           </div>

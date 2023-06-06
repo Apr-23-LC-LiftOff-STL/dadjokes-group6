@@ -36,13 +36,16 @@
         <div class="c-profile">
           <h1 class="c-profile-header">Your Profile</h1>
           <div class="c-profile-user-data">
+
             <div class="c-profile-field-box">
               <div class="c-profile-field-label">Username:</div>
-              <div id="profile-username" class="c-profile-user-text-data">This will display the active username.</div>
+
+              <div id="profile-username" class="c-profile-user-text-data" th:text="${username}">This will display the active username.</div>
             </div>
             <div class="c-profile-field-box">
               <div class="c-profile-field-label">EMAIL:</div>
-              <div id="profile-email" class="c-profile-user-text-data" sec:authentication="principal.username">This will display the active name.</div>
+              <div id="profile-email" class="c-profile-user-text-data" th:text="${email}">This will display the active email.</div>
+<!--              sec:authentication="principal.username"-->
             </div>
             <div class="c-profile-field-box">
               <div class="c-profile-field-label">PASSWORD:</div>

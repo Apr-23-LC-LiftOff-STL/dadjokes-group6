@@ -49,11 +49,11 @@
                 <div class="c-submit-joke-checkboxes"><label class="w-checkbox c-submit-joke-checkbox-div"><input type="checkbox" id="submit-joke-nsfw-true" name="checkbox" data-name="Checkbox" class="w-checkbox-input c-submit-joke-input-checkbox"><span class="c-submit-joke-checkbox-label w-form-label" for="checkbox">Yes</span></label><label class="w-checkbox c-submit-joke-checkbox-div"><input type="checkbox" id="submit-joke-nsfw-false" name="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input c-submit-joke-input-checkbox"><span class="c-submit-joke-checkbox-label w-form-label" for="checkbox-2">No</span></label></div>
               </div><input type="submit" id="submit-joke-button" value="Submit" data-wait="Please wait..." class="c-submit-joke-submit-button w-button">
             </form>
-            <div class="w-form-done">
+            <div th:if="${param.success}"class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
-            <div class="w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
+            <div th:if="${param.error}" class="w-form-fail">
+              <div>Oops! Something went wrong while submitting your.</div>
             </div>
           </div>
         </div>
