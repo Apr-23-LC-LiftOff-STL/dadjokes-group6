@@ -1,5 +1,8 @@
 package com.raddadjokes.raddadjokes.controllers;
 
+import com.raddadjokes.raddadjokes.data.UserRepository;
+import com.raddadjokes.raddadjokes.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,17 +14,17 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/profile")
 public class ProfileController {
 
-//    @Autowired
-//    private ProfilesRepository profileRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    @GetMapping
-    public String showProfiles(Model model, HttpSession session) {
+    @GetMapping("/profile")
+    public String showProfile(Model model, HttpSession session) {
 //Temp comment out
-//        String username = (String) session.getAttribute("username");
-//        Profiles profile = profileRepository.findByUsername(username);
+        String username = (String) session.getAttribute("username");
+        User user = userRepository.findByUsername(username);
 
-        // Add the profile to the model?
-        // model.addAttribute("profile", profile);
+//         Add the profile to the model?
+         model.addAttribute("user", user);
 
 
         //alt method that works
@@ -32,23 +35,4 @@ public class ProfileController {
         return "/profile";
     }
 
-//    @PostMapping("/update")
-//    public String updateProfile(
-//            @RequestParam("username") String username,
-//            @RequestParam("email") String email,
-//            @RequestParam("password") String password
-//    ) {
-//        Profiles profile = profileRepository.findByUsername(username);
-//
-//        // Update the profile with the new values
-//        // profile.setUsername(username);
-//        // profile.setEmail(email);
-//        // profile.setPassword(password);
-//
-//        // Save the updated profile to the repository
-//        // profileRepository.save(profile);
-//
-//        // Redirect back to the profile page
-//        return "redirect:/profile";
-//    }
 }

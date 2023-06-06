@@ -43,6 +43,8 @@ public class User {
     )
     private Collection<Joke> userJokes;
 
+
+
 //    NON-MVP Fields:
 //    @Column(name = "first_name")
 //    private String firstName;
