@@ -35,7 +35,7 @@
         <div class="c-submit-joke">
           <h1 class="heading">Submit a Joke</h1>
           <div class="c-submit-joke-form-block w-form">
-            <form th:object="${newJoke}" id="wf-form-submit-joke-form" name="newJoke" data-name="submit-joke-form" method="post" class="c-submit-joke-form">
+            <form th:action="@{/submit-joke}" th:object="${newJoke}" id="wf-form-submit-joke-form" name="newJoke" data-name="submit-joke-form" method="post" class="c-submit-joke-form">
               <div th:text="${userId}" class="c-submit-joke-user-id" name="userId"></div>
               <div class="c-submit-joke-input-div">
                 <div class="c-submit-joke-label">SETUP</div>

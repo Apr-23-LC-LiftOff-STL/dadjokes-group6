@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Null;
 import java.util.Collection;
 
 @Controller
@@ -49,25 +50,25 @@ public class SubmitJokeController {
 
         return ("/submit-joke");
     }
-    @PostMapping("")
-    public String saveJoke(@ModelAttribute Joke newJoke, Authentication authentication){
-
-    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
-    String email = userDetails.getUsername();
-    User user = userRepository.findByEmail(email);
-    Long userId = user.getId();
-        System.out.println(userId);
-
-//    newJoke.setId(userId);
-        System.out.println(newJoke.getSetup());
-        System.out.println(newJoke.getPunchline());
-        System.out.println(newJoke.getNsfw());
-    jokeRepository.save(newJoke);
-
-
-    return "redirect:/registration?success";
-    }
+//    @PostMapping("")
+//    public String saveJoke(@ModelAttribute Joke newJoke, Authentication authentication){
+//
+//    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//
+//    String email = userDetails.getUsername();
+//    User user = userRepository.findByEmail(email);
+//    Long userId = user.getId();
+//        System.out.println(userId);
+//
+////    newJoke.setId(userId);
+//        System.out.println(newJoke.getSetup());
+//        System.out.println(newJoke.getPunchline());
+//        System.out.println(newJoke.getNsfw());
+//    jokeRepository.save(newJoke);
+//
+//
+//    return "redirect:/registration?success";
+//    }
     @PostMapping("/submit-joke")
     public String processSubmitJoke(@ModelAttribute Joke newJoke, Authentication authentication){
 
@@ -75,13 +76,13 @@ public class SubmitJokeController {
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
-//        Long userId = user.getId();
+        newJoke.setUserId(user.getId());
+
 //        String setup = newJoke.getSetup();
 //        String punchLine = newJoke.getPunchline();
-//        newJoke = (userId, Joke.getSetup(), );
         jokeRepository.save(newJoke);
-        System.out.println(userDetails);
-        return ("/my-jokes");
+//        System.out.println(userDetails);
+        return "redirect:/my-jokes";
 
 //        return "/submit-joke";
     };

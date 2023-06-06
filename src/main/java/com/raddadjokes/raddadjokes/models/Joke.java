@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class Joke {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 //    @OneToMany
     @Column(name = "user_id")
