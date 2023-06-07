@@ -62,10 +62,10 @@ public class JokeFetcher {
                 Boolean nsfw = jokeObject.getBoolean("NSFW");
 
                 //creates a new Joke with the returned values
-                Joke apiJoke = new Joke(user_id, setup, punchline, api_id, nsfw);
+//                Joke apiJoke = new Joke(setup, punchline, api_id, nsfw);
 
                 //returns a Joke object with the values from the API call to DadJokes.io
-                return apiJoke;
+                return new Joke();
             }
             return null;
         } catch (Exception e) {

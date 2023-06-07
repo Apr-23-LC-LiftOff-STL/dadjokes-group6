@@ -1,63 +1,62 @@
 package com.raddadjokes.raddadjokes.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.util.Objects;
 
-
-@Table(name = "jokes")
 @Entity
-public class Joke extends AbstractEntity {
+@Table(name = "joke")
+public class Joke {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false, name = "joke_id")
-    private Integer joke_id;
-
-    @NotBlank(message = "The joke setup field cannot be blank.")
-    @Size(min = 5, max = 4000, message = "The joke setup must be between 5 and 4000 characters.")
-    @Column(nullable = false, name = "setup")
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
+    private Long id;
+//    @OneToMany
+    @Column(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Long userId;
+    @Column(name = "setup")
     private String setup;
-
-    @Size(max = 4000, message = "The joke punchline must be less than 4000 characters.")
-    @Column(nullable = true, name = "punchline")
+    @Column(name = "punchline")
     private String punchline;
-
-    @Column(updatable = false, nullable = true, name = "api_id")
-    private String api_id;
-
-    //should this be a ManyToOne or OneToMany? One user_id can be associated with many jokes, right?
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private Integer user_id;
-
+    @Column(name="api_id", unique = true)
+    private String apiId;
+    @Column(name = "nsfw")
     private Boolean nsfw;
 
 
-    public Joke() {}
+    //    NON-MVP Fields:
+//    private Integer rating;
 
-    public Joke(String setup, String punchline) {
-        this();
+
+    public Joke(){}
+    public Joke(Long userId, String setup, String punchline, String apiId, Boolean nsfw) {
+        this.userId = userId;
         this.setup = setup;
         this.punchline = punchline;
-        //return setup + "|" + punchline;
-        //to return use return_value.split("|") gives array of values
-    }
-
-    public Joke(Integer user_id, String setup, String punchline, String api_id, Boolean nsfw) {
-        this();
-        this.user_id = user_id;
-        this.setup = setup;
-        this.punchline = punchline;
-        this.api_id = api_id;
+        this.apiId = apiId;
         this.nsfw = nsfw;
-        //return setup + "|" + punchline;
-        //to return use return_value.split("|") gives array of values
+    }
+//    public Joke(Long userId, String setup, String punchline, Boolean nsfw) {
+//        this.userId = userId;
+//        this.setup = setup;
+//        this.punchline = punchline;
+//        this.nsfw = nsfw;
+//    }
+
+    public Long getId() {
+        return id;
     }
 
-    public Integer getJoke_id() {
-        return joke_id;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getSetup() {
@@ -76,8 +75,12 @@ public class Joke extends AbstractEntity {
         this.punchline = punchline;
     }
 
-    public String getApi_id() {
-        return api_id;
+    public String getApiId() {
+        return apiId;
+    }
+
+    public void setApiId(String apiId) {
+        this.apiId = apiId;
     }
 
     public Boolean getNsfw() {
@@ -86,29 +89,5 @@ public class Joke extends AbstractEntity {
 
     public void setNsfw(Boolean nsfw) {
         this.nsfw = nsfw;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Joke)) return false;
-        if (!super.equals(o)) return false;
-        Joke jokes = (Joke) o;
-        return getSetup().equals(jokes.getSetup()) && Objects.equals(getPunchline(), jokes.getPunchline()) && Objects.equals(getApi_id(), jokes.getApi_id()) && Objects.equals(user_id, jokes.user_id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getSetup(), getPunchline(), getApi_id(), user_id, getNsfw());
-    }
-
-    @Override
-    public String toString() {
-        return  "Joke ID: " + joke_id + '\'' +
-                "User ID: " + user_id + '\'' +
-                "API ID: " + api_id + '\'' +
-                "Setup: " + setup + '\'' +
-                "Punchline: " + punchline + '\'' +
-                "NSFW: " + nsfw;
     }
 }
