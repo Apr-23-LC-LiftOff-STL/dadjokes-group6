@@ -14,10 +14,13 @@ public class Joke {
     @Column(name = "user_id")
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Long userId;
+    @Column(name = "setup")
     private String setup;
+    @Column(name = "punchline")
     private String punchline;
     @Column(name="api_id", unique = true)
     private String apiId;
+    @Column(name = "nsfw")
     private Boolean nsfw;
 
 
