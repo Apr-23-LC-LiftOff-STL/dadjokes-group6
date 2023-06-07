@@ -35,6 +35,9 @@ public class MyJokesController {
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
+        System.out.println(user.getId());
+//        Collection<Joke> userJokes = (Collection<Long>) jokeRepository.findJokeIdsByUserId(user.getId());
+//        System.out.println(userJokes);
 
         Collection<Joke> userJokes = (Collection<Joke>) jokeRepository.findJokeByUserId(user.getId());
 //        System.out.println(user.getUsername());

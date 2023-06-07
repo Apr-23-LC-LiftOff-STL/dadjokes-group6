@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.Null;
@@ -37,11 +38,17 @@ public class SubmitJokeController {
         Long userId = user.getId();
         Joke newJoke = new Joke();
 
-        Collection userJokes = user.getUserJokes();
+
+        Collection userJokes = jokeRepository.findJokeIdsByUserId(userId);
         System.out.println("username: " + user.getUsername());
         System.out.println("user email: " + user.getEmail());
         System.out.println("user ID: " + user.getId());
-        System.out.println("user jokes: " + user.getUserJokes());
+        System.out.println("user jokes: " + userJokes);
+        for(Object userJoke : userJokes.toArray()) {
+            Long jokeId = (Long) userJoke;
+            Joke userJokeReal = jokeRepository.findJokeById(jokeId);
+            System.out.println(userJokeReal.toString());
+        }
 
         model.addAttribute("user", user);
         model.addAttribute("userJokes", userJokes);
@@ -73,20 +80,21 @@ public class SubmitJokeController {
 
     @PostMapping
     public String processSubmitJoke(@ModelAttribute Joke newJoke, Authentication authentication){
-
+//, RedirectAttributes redirectAttributes
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
-        newJoke.setUser(user.getId());
+        newJoke.setUser(user);
 
 //        String setup = newJoke.getSetup();
 //        String punchLine = newJoke.getPunchline();
         System.out.println(user.getId());
         jokeRepository.save(newJoke);
 //        System.out.println(userDetails);\
-        return "redirect:/my-jokes";
+//        return "redirect:/my-jokes"
+//        redirectAttributes.addAttribute("success", "");
 
-//        return "/submit-joke";
+        return "submit-joke";
     };
 }

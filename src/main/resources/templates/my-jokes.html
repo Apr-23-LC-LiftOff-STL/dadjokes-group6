@@ -44,9 +44,9 @@
           </div>
 
           <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
-            <div th:each="joke : ${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div">
-              <div th:text="${joke.setup + ' ' + joke.punchline}" class="c-my-jokes-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
-              <div class="c-my-jokes-joke-delete"></div>
+            <div th:each="${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
+              <div th:text="${Joke.setup + ' ' + Joke.punchline}" class="c-my-jokes-joke-text" name="Joke">What is Spiderman&#x27;s dream job? Web designer.</div>
+              <div class="c-my-jokes-joke-delete" name="delete"></div>
             </div>
           </div>
         </div>
