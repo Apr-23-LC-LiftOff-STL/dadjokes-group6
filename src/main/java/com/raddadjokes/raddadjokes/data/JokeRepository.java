@@ -12,8 +12,8 @@ import java.util.List;
 @Repository
 public interface JokeRepository extends JpaRepository<Joke, Integer> {
 
-    @Query("SELECT j.id FROM Joke j WHERE j.user.id = :userId")
-    Collection<Joke> findJokeIdsByUserId(@Param("userId") Long userId);
+    @Query("SELECT j.id FROM Joke j WHERE user_id = :user_Id")
+    Collection<Long> findJokeIdsByUserId(@Param("user_Id") Long userId);
 
     //List<Joke> findAllByUserJokesUserId(Long userId);
 
@@ -21,6 +21,6 @@ public interface JokeRepository extends JpaRepository<Joke, Integer> {
     Joke findJokeByPunchline(String punchline);
     Joke findJokeByApiId(String apiId);
     Joke findJokeByUserId(Long userId);
-    Joke findJokeIdByUserId(Long userId);
+//    Joke findJokeIdByUserId(Long userId);
 
 }

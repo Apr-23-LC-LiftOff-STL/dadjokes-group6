@@ -18,7 +18,7 @@ public class RadDadJokesApplication {
 		System.out.println(jokeJson);
 //		System.out.println(jokeJson.getClass());
 		Joke apiJoke = jokeFetcher.parseJsonToJokes(jokeJson);
-		System.out.println(apiJoke.toString());
+		//System.out.println(apiJoke.toString());
 		SpringApplication.run(RadDadJokesApplication.class, args);
 	}
 

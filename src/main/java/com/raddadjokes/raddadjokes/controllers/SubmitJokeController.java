@@ -78,7 +78,7 @@ public class SubmitJokeController {
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
-        newJoke.setUserId(user.getId());
+        newJoke.setUser(user);
 
 //        String setup = newJoke.getSetup();
 //        String punchLine = newJoke.getPunchline();
