@@ -20,7 +20,7 @@ public class User {
     @NotBlank
     @Column(name = "email", unique = true)
     private String email;
-//    @Size(min =4, max=100, message = "Password must be between 4 and 100 characters.")
+    //    @Size(min =4, max=100, message = "Password must be between 4 and 100 characters.")
     @NotBlank
     @Column(name = "password")
     private String password;
@@ -38,7 +38,7 @@ public class User {
     @JoinTable(
             name="user_jokes",
             joinColumns = @JoinColumn(
-            name="user_id", referencedColumnName = "id"),
+                    name="user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name="joke_id", referencedColumnName = "id"
             )

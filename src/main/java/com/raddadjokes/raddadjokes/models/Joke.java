@@ -10,10 +10,10 @@ public class Joke {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-//    @OneToMany
-    @Column(name = "user_id")
+    //    @OneToMany
+    @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Long userId;
+    private User user;
     @Column(name = "setup")
     private String setup;
     @Column(name = "punchline")
@@ -29,8 +29,8 @@ public class Joke {
 
 
     public Joke(){}
-    public Joke(Long userId, String setup, String punchline, String apiId, Boolean nsfw) {
-        this.userId = userId;
+    public Joke(User user, String setup, String punchline, String apiId, Boolean nsfw) {
+        this.user = user;
         this.setup = setup;
         this.punchline = punchline;
         this.apiId = apiId;
@@ -51,13 +51,20 @@ public class Joke {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+//    public Long getUserId() {
+//        return userId;
+//    }
+
+//    public void setUserId(Long userId) {
+//        this.userId = userId;
+//    }
 
     public String getSetup() {
         return setup;
@@ -90,4 +97,5 @@ public class Joke {
     public void setNsfw(Boolean nsfw) {
         this.nsfw = nsfw;
     }
+    
 }
