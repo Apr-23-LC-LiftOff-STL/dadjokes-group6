@@ -12,16 +12,17 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-    @Column(name = "user_name", unique = true)
     @Size(min=4, max=25, message = "Username must be between 4 and 25 characters.")
+    @Column(name = "user_name", unique = true)
     private String username;
+    @NotBlank
     @Column(name = "email", unique = true)
-    @NotBlank
     private String email;
-    @Column(name = "password")
-    @NotBlank
 //    @Size(min =4, max=100, message = "Password must be between 4 and 100 characters.")
+    @NotBlank
+    @Column(name = "password")
     private String password;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -119,7 +120,7 @@ public class User {
         return userJokes;
     }
 
-    public void setUserJokes(List<Joke> userJokes) {
+    public void setUserJokes(Collection<Joke> userJokes) {
         this.userJokes = userJokes;
     }
 }

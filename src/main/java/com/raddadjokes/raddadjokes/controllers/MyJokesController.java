@@ -2,6 +2,7 @@ package com.raddadjokes.raddadjokes.controllers;
 
 import com.raddadjokes.raddadjokes.data.JokeRepository;
 import com.raddadjokes.raddadjokes.data.UserRepository;
+import com.raddadjokes.raddadjokes.models.Joke;
 import com.raddadjokes.raddadjokes.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -35,9 +36,12 @@ public class MyJokesController {
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
 
-        Collection userJokes = user.getUserJokes();
-        System.out.println(user.getUsername());
-        System.out.println(user.getUserJokes());
+        Collection<Long> jokeId = (Collection<Long>) jokeRepository.findJokeByUserId(user.getId());
+//        System.out.println(user.getUsername());
+//        System.out.println(user.getUserJokes());
+        user.setUserJokes(jokeId);
+//        userRepository.save(user);
+
 
         model.addAttribute("user", user);
         model.addAttribute("userJokes", userJokes);

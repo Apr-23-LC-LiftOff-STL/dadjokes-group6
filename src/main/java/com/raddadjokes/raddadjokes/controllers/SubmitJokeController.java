@@ -51,6 +51,26 @@ public class SubmitJokeController {
         return ("/submit-joke");
     }
 
+//    @PostMapping("")
+//    public String saveJoke(@ModelAttribute Joke newJoke, Authentication authentication){
+//
+//    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//
+//    String email = userDetails.getUsername();
+//    User user = userRepository.findByEmail(email);
+//    Long userId = user.getId();
+//        System.out.println(userId);
+//
+////    newJoke.setId(userId);
+//        System.out.println(newJoke.getSetup());
+//        System.out.println(newJoke.getPunchline());
+//        System.out.println(newJoke.getNsfw());
+//    jokeRepository.save(newJoke);
+//
+//
+//    return "redirect:/registration?success";
+//    }
+
     @PostMapping
     public String processSubmitJoke(@ModelAttribute Joke newJoke, Authentication authentication){
 
