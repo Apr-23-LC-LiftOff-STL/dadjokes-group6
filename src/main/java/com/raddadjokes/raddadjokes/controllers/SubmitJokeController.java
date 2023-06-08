@@ -20,7 +20,7 @@ import javax.validation.constraints.Null;
 import java.util.Collection;
 
 @Controller
-@RequestMapping("/submit-joke")
+@RequestMapping("submit-joke")
 public class SubmitJokeController {
     @Autowired
     private JokeRepository jokeRepository;
@@ -28,8 +28,39 @@ public class SubmitJokeController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("create")
     public String showSubmitJoke(Model model, Authentication authentication){
+
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        String email = userDetails.getUsername();
+        User user = userRepository.findByEmail(email);
+        Integer userId = user.getId();
+        Joke newJoke = new Joke();
+
+
+        Collection<Integer> userJokes = jokeRepository.findJokeIdsByUserId(userId);
+        System.out.println("username: " + user.getUsername());
+        System.out.println("user email: " + user.getEmail());
+        System.out.println("user ID: " + user.getId());
+        System.out.println("user jokes: " + userJokes);
+//        for(Integer jokeId : userJokes) {
+
+//            Integer jokeId = userJoke.getUserId();
+//            Joke userJokeReal = jokeRepository.findJokeById(jokeId);
+//            System.out.println(userJokeReal.toString());
+//        }
+
+        model.addAttribute("user", user);
+        model.addAttribute("userJokes", userJokes);
+        model.addAttribute("newJoke", newJoke);
+        model.addAttribute("userId",userId);
+
+        return ("submit-joke/create");
+    }
+
+    @GetMapping("success")
+    public String showSubmitJokeSuccess(Model model, Authentication authentication){
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
@@ -56,7 +87,7 @@ public class SubmitJokeController {
         model.addAttribute("newJoke", newJoke);
         model.addAttribute("userId",userId);
 
-        return ("/submit-joke");
+        return ("submit-joke/success");
     }
 
 //    @PostMapping("")
@@ -96,8 +127,8 @@ public class SubmitJokeController {
         jokeRepository.save(newJoke);
 //        System.out.println(userDetails);\
 //        return "redirect:/my-jokes"
-//        redirectAttributes.addAttribute("success", "");
+//        redirectAttributes.addFlashAttribute("success", true);
 
-        return "submit-joke";
+        return "redirect:submit-joke/success";
     };
 }
