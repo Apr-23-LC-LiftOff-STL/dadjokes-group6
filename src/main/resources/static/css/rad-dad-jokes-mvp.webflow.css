@@ -387,6 +387,31 @@ h1 {
   box-shadow: 0 8px 5px rgba(0, 0, 0, .2), inset 0 5px 4px rgba(0, 0, 0, .2);
 }
 
+.c-main-div.success-submit {
+  width: 80%;
+  height: 70vh;
+  text-align: left;
+  background-color: #bf533b;
+  border: 15px solid #210140;
+  border-radius: 35px;
+  flex-flow: column;
+  flex: 0 auto;
+  order: 0;
+  justify-content: top;
+  align-self: flex-start;
+  align-items: top;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  box-shadow: 0 8px 5px rgba(0, 0, 0, .2), inset 0 5px 4px rgba(0, 0, 0, .2);
+}
+
 .c-main-div.border {
   width: 100%;
   height: 100%;
@@ -398,6 +423,26 @@ h1 {
   justify-content: center;
   align-self: center;
   align-items: center;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  box-shadow: inset 0 9px 4px rgba(0, 0, 0, .2);
+}
+
+.c-main-div.border.submit-joke-success {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border-width: 3px;
+  border-color: #f0e8df;
+  border-radius: 17px;
+  flex-flow: column;
+  justify-content: top;
+  align-self: top;
+  align-items: top;
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0px;
@@ -771,6 +816,15 @@ h1 {
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.c-submit-joke.success {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   display: flex;
 }

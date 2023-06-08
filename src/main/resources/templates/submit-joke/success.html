@@ -30,13 +30,13 @@
     <a id="nav-button-logo" th:href="@{/}" href="/" class="c-header-logo-link w-inline-block"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
     <a th:href="@{/logout}" class="nav-link-logout" sec:authroize="isAuthenticated()">Logout</a>
   </div>
-  <div class="c-main-div">
-    <div class="c-main-div border">
-      <div class="c-submit-joke">
-        <h1 class="heading">Submit a Joke</h1>
-        <div class="w-form-done">
-          <div>Thank you! Your submission has been received!
-<!--            <a class="link-2" th:href="/submit-joke/create" href="/submit-joke/create">Click here to submit another one!</a>-->
+  <div class="c-main-div success-submit success-submit">
+    <div>
+<!--        <h1 class="heading">Submit a Joke</h1>-->
+      <div class="c-submit-joke success">
+        <div class="w-form-done successful">
+          <div style="font-size: 24px">Thank you! Your submission has been received!<br><br>
+            <a class="link-2" href="/submit-joke/create">Click here to submit another one!</a>
           </div>
         </div>
 <!--        <div th:if="${param.error}" class="w-form-fail">-->
