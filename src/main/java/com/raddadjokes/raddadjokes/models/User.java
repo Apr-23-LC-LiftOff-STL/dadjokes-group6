@@ -13,7 +13,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
+    private Integer id;
     @Size(min=4, max=25, message = "Username must be between 4 and 25 characters.")
     @Column(name = "user_name", unique = true)
     private String username;
@@ -34,7 +34,7 @@ public class User {
             )
     )
     private Collection<Role> roles;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="user_jokes",
             joinColumns = @JoinColumn(
@@ -76,11 +76,11 @@ public class User {
 //        this.password = password;
 //    }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

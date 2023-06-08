@@ -13,16 +13,16 @@ import java.util.List;
 public interface JokeRepository extends JpaRepository<Joke, Integer> {
 
     @Query("SELECT j.id FROM Joke j WHERE user_id = :user_Id")
-    Collection<Long> findJokeIdsByUserId(@Param("user_Id") Long userId);
+    Collection<Integer> findJokeIdsByUserId(@Param("user_Id") Integer userId);
 
     //List<Joke> findAllByUserJokesUserId(Long userId);
 
     Joke findJokeBySetup(String setup);
     Joke findJokeByPunchline(String punchline);
 
-    Joke findJokeById(Long id);
+    Joke findJokeById(Integer id);
     Joke findJokeByApiId(String apiId);
-    Joke findJokeByUserId(Long userId);
+    Joke findJokeByUserId(Integer userId);
 //    Joke findJokeIdByUserId(Long userId);
 
 }

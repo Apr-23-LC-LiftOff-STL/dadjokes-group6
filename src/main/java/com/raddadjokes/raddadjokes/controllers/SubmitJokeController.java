@@ -35,17 +35,18 @@ public class SubmitJokeController {
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
-        Long userId = user.getId();
+        Integer userId = user.getId();
         Joke newJoke = new Joke();
 
 
-        Collection userJokes = jokeRepository.findJokeIdsByUserId(userId);
+        Collection<Integer> userJokes = jokeRepository.findJokeIdsByUserId(userId);
         System.out.println("username: " + user.getUsername());
         System.out.println("user email: " + user.getEmail());
         System.out.println("user ID: " + user.getId());
         System.out.println("user jokes: " + userJokes);
-        for(Object userJoke : userJokes.toArray()) {
-            Long jokeId = (Long) userJoke;
+        for(Integer jokeId : userJokes) {
+
+//            Integer jokeId = userJoke.getUserId();
             Joke userJokeReal = jokeRepository.findJokeById(jokeId);
             System.out.println(userJokeReal.toString());
         }
@@ -85,7 +86,9 @@ public class SubmitJokeController {
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
-        newJoke.setUser(user);
+
+        Integer userId = user.getId();
+        newJoke.setUserId(userId);
 
 //        String setup = newJoke.getSetup();
 //        String punchLine = newJoke.getPunchline();

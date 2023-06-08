@@ -9,11 +9,11 @@ public class Joke {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
+    private Integer id;
     //    @OneToMany
-    @OneToOne
+//    @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private Integer userId;
     @Column(name = "setup")
     private String setup;
     @Column(name = "punchline")
@@ -29,8 +29,8 @@ public class Joke {
 
 
     public Joke(){}
-    public Joke(User user, String setup, String punchline, String apiId, Boolean nsfw) {
-        this.user = user;
+    public Joke(Integer userId, String setup, String punchline, String apiId, Boolean nsfw) {
+        this.userId = userId;
         this.setup = setup;
         this.punchline = punchline;
         this.apiId = apiId;
@@ -43,26 +43,26 @@ public class Joke {
 //        this.nsfw = nsfw;
 //    }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-//    public Long getUserId() {
+//    public Integer getUserId() {
 //        return userId;
 //    }
 
-//    public void setUserId(Long userId) {
+//    public void setUserId(Integer userId) {
 //        this.userId = userId;
 //    }
 
@@ -102,7 +102,7 @@ public class Joke {
     public String toString() {
         return "Joke{" +
                 "id=" + id +
-                ", user=" + user +
+                ", user=" + userId +
                 ", setup='" + setup + '\'' +
                 ", punchline='" + punchline + '\'' +
                 ", apiId='" + apiId + '\'' +
