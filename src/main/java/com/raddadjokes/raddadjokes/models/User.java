@@ -43,7 +43,7 @@ public class User {
                     name="joke_id", referencedColumnName = "id"
             )
     )
-    private Collection<Integer> userJokes;
+    private Collection<Joke> userJokes;
 
 
 
@@ -116,11 +116,11 @@ public class User {
         this.roles = roles;
     }
 
-    public Collection<Integer> getUserJokes() {
+    public Collection<Joke> getUserJokes() {
         return userJokes;
     }
 
-    public void setUserJokes(Collection<Integer> userJokes) {
+    public void setUserJokes(Collection<Joke> userJokes) {
         this.userJokes = userJokes;
     }
 
