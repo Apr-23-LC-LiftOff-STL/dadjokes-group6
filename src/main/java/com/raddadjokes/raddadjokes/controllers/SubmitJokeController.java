@@ -38,7 +38,6 @@ public class SubmitJokeController {
         Integer userId = user.getId();
         Joke newJoke = new Joke();
 
-
         Collection<Integer> userJokes = jokeRepository.findJokeIdsByUserId(userId);
         System.out.println("username: " + user.getUsername());
         System.out.println("user email: " + user.getEmail());
@@ -68,7 +67,6 @@ public class SubmitJokeController {
         User user = userRepository.findByEmail(email);
         Integer userId = user.getId();
         Joke newJoke = new Joke();
-
 
         Collection<Integer> userJokes = jokeRepository.findJokeIdsByUserId(userId);
         System.out.println("username: " + user.getUsername());
@@ -120,6 +118,11 @@ public class SubmitJokeController {
 
         Integer userId = user.getId();
         newJoke.setUserId(userId);
+
+        Collection<Integer> userJokes = userRepository.findUserJokesByUserId(userId);
+        Integer jokeId = newJoke.getId();
+        userJokes.add(jokeId);
+        user.setUserJokes(userJokes);
 
 //        String setup = newJoke.getSetup();
 //        String punchLine = newJoke.getPunchline();

@@ -36,15 +36,22 @@ public class MyJokesController {
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
         System.out.println(user.getId());
+        Integer userId = user.getId();
+
+
 //        Collection<Joke> userJokes = (Collection<Long>) jokeRepository.findJokeIdsByUserId(user.getId());
 //        System.out.println(userJokes);
 
-//        Collection<Joke> userJokes = (Collection<Joke>) jokeRepository.findJokeByUserId(user.getId());
+        Collection<Integer> userJokes = userRepository.findUserJokesByUserId(userId);
+        System.out.println(userJokes);
 //        System.out.println(user.getUsername());
 //        System.out.println(user.getUserJokes());
 //        user.setUserJokes(userJokes);
 //        userRepository.save(user);
 
+//        for (Integer jokeID: user.getUserJokes(){
+//            System.out.println(jokeRepository.findJokeById());
+//        }
 
         model.addAttribute("user", user);
         model.addAttribute("userJokes", user.getUserJokes());

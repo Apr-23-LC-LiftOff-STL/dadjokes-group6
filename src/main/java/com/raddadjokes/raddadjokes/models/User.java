@@ -14,16 +14,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Integer id;
+
     @Size(min=4, max=25, message = "Username must be between 4 and 25 characters.")
     @Column(name = "user_name", unique = true)
     private String username;
+
     @NotBlank
     @Column(name = "email", unique = true)
     private String email;
     //    @Size(min =4, max=100, message = "Password must be between 4 and 100 characters.")
+
     @NotBlank
     @Column(name = "password")
     private String password;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name="users_roles",
@@ -34,16 +38,17 @@ public class User {
             )
     )
     private Collection<Role> roles;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name="user_jokes",
-            joinColumns = @JoinColumn(
-                    name="user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name="joke_id", referencedColumnName = "id"
-            )
-    )
-    private Collection<Joke> userJokes;
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name="user_jokes",
+//            joinColumns = @JoinColumn(
+//                    name="user_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(
+//                    name="joke_id", referencedColumnName = "id"
+//            )
+//    )
+//    private Collection<Integer> userJokes;
 
 
 
@@ -116,11 +121,11 @@ public class User {
         this.roles = roles;
     }
 
-    public Collection<Joke> getUserJokes() {
+    public Collection<Integer> getUserJokes() {
         return userJokes;
     }
 
-    public void setUserJokes(Collection<Joke> userJokes) {
+    public void setUserJokes(Collection<Integer> userJokes) {
         this.userJokes = userJokes;
     }
 
