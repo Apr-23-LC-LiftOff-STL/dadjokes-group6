@@ -122,4 +122,16 @@ public class User {
     public void setUserJokes(List<Joke> userJokes) {
         this.userJokes = userJokes;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                ", userJokes=" + userJokes +
+                '}';
+    }
 }

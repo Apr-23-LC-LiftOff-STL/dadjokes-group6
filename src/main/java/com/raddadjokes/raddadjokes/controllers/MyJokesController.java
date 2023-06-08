@@ -3,6 +3,7 @@ package com.raddadjokes.raddadjokes.controllers;
 import com.raddadjokes.raddadjokes.data.JokeRepository;
 import com.raddadjokes.raddadjokes.data.UserRepository;
 import com.raddadjokes.raddadjokes.models.User;
+import com.raddadjokes.raddadjokes.models.Joke;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
@@ -38,6 +39,13 @@ public class MyJokesController {
         Collection userJokes = user.getUserJokes();
         System.out.println(user.getUsername());
         System.out.println(user.getUserJokes());
+        System.out.println(user.toString());
+
+//        Long userId = (long) 11;
+        Long userId = user.getId();
+        Joke joke = new Joke();
+        joke = jokeRepository.findJokeByUserId(userId);
+        System.out.println(joke.toString());
 
         model.addAttribute("user", user);
         model.addAttribute("userJokes", userJokes);

@@ -86,4 +86,16 @@ public class Joke {
     public void setNsfw(Boolean nsfw) {
         this.nsfw = nsfw;
     }
+
+    @Override
+    public String toString() {
+        return "Joke{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", setup='" + setup + '\'' +
+                ", punchline='" + punchline + '\'' +
+                ", apiId='" + apiId + '\'' +
+                ", nsfw=" + nsfw +
+                '}';
+    }
 }
