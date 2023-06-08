@@ -34,16 +34,16 @@ public class User {
             )
     )
     private Collection<Role> roles;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name="user_jokes",
-            joinColumns = @JoinColumn(
-                    name="user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name="joke_id", referencedColumnName = "id"
-            )
-    )
-    private Collection<Joke> userJokes;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name="user_jokes",
+//            joinColumns = @JoinColumn(
+//                    name="user_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(
+//                    name="joke_id", referencedColumnName = "id"
+//            )
+//    )
+//    private Collection<Joke> userJokes;
 
 
 
@@ -116,13 +116,13 @@ public class User {
         this.roles = roles;
     }
 
-    public Collection<Joke> getUserJokes() {
-        return userJokes;
-    }
-
-    public void setUserJokes(Collection<Joke> userJokes) {
-        this.userJokes = userJokes;
-    }
+//    public Collection<Joke> getUserJokes() {
+//        return userJokes;
+//    }
+//
+//    public void setUserJokes(Collection<Joke> userJokes) {
+//        this.userJokes = userJokes;
+//    }
 
     @Override
     public String toString() {
@@ -132,7 +132,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
-                ", userJokes=" + userJokes +
+//                ", userJokes=" + userJokes +
                 '}';
     }
 }

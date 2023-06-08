@@ -42,8 +42,12 @@ public class MyJokesController {
 //        Collection<Joke> userJokes = (Collection<Long>) jokeRepository.findJokeIdsByUserId(user.getId());
 //        System.out.println(userJokes);
 
-        Collection<Integer> userJokes = userRepository.findUserJokesByUserId(userId);
-        System.out.println(userJokes);
+        Collection<Joke> userJokes = jokeRepository.findJokeByUserId(userId);
+        for(Joke joke:userJokes){
+        model.addAttribute("joke", joke);
+            System.out.println(joke.toString());
+        }
+//        System.out.println(userJokes);
 //        System.out.println(user.getUsername());
 //        System.out.println(user.getUserJokes());
 //        user.setUserJokes(userJokes);
@@ -54,7 +58,7 @@ public class MyJokesController {
 //        }
 
         model.addAttribute("user", user);
-        model.addAttribute("userJokes", user.getUserJokes());
+        model.addAttribute("userJokes", userJokes);
 
         return ("/my-jokes");
     }

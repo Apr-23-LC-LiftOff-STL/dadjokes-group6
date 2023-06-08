@@ -119,14 +119,14 @@ public class SubmitJokeController {
         Integer userId = user.getId();
         newJoke.setUserId(userId);
 
-        Collection<Integer> userJokes = userRepository.findUserJokesByUserId(userId);
-        Integer jokeId = newJoke.getId();
-        userJokes.add(jokeId);
-        user.setUserJokes(userJokes);
+//        Collection<Integer> userJokes = userRepository.findUserJokesByUserId(userId);
+//        Integer jokeId = newJoke.getId();
+//        userJokes.add(jokeId);
+//        user.setUserJokes(userJokes);
 
 //        String setup = newJoke.getSetup();
 //        String punchLine = newJoke.getPunchline();
-        System.out.println(user.getId());
+//        System.out.println(user.getId());
         jokeRepository.save(newJoke);
 //        System.out.println(userDetails);\
 //        return "redirect:/my-jokes"
