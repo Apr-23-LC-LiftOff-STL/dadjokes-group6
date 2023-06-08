@@ -39,10 +39,10 @@ public class MyJokesController {
 //        Collection<Joke> userJokes = (Collection<Long>) jokeRepository.findJokeIdsByUserId(user.getId());
 //        System.out.println(userJokes);
 
-        Collection<Joke> userJokes = (Collection<Joke>) jokeRepository.findJokeByUserId(user.getId());
+//        Collection<Joke> userJokes = (Collection<Joke>) jokeRepository.findJokeByUserId(user.getId());
 //        System.out.println(user.getUsername());
 //        System.out.println(user.getUserJokes());
-        user.setUserJokes(userJokes);
+//        user.setUserJokes(userJokes);
 //        userRepository.save(user);
 
 
