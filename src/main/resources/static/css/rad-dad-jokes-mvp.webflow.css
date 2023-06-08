@@ -755,6 +755,17 @@ h1 {
 .c-my-jokes-joke-text {
   width: 85%;
   text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  display: flex;
+}
+
+.c-my-jokes-text-only {
+  width: 85%;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   padding: 10px;

@@ -22,7 +22,7 @@ public interface JokeRepository extends JpaRepository<Joke, Integer> {
 
     Joke findJokeById(Integer id);
     Joke findJokeByApiId(String apiId);
-    Joke findJokeByUserId(Integer userId);
+    Collection<Joke> findJokeByUserId(Integer userId);
 //    Joke findJokeIdByUserId(Long userId);
 
 }

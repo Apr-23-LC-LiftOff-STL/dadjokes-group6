@@ -14,20 +14,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Integer id;
-
     @Size(min=4, max=25, message = "Username must be between 4 and 25 characters.")
     @Column(name = "user_name", unique = true)
     private String username;
-
     @NotBlank
     @Column(name = "email", unique = true)
     private String email;
     //    @Size(min =4, max=100, message = "Password must be between 4 and 100 characters.")
-
     @NotBlank
     @Column(name = "password")
     private String password;
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name="users_roles",
@@ -38,8 +34,7 @@ public class User {
             )
     )
     private Collection<Role> roles;
-
-//    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToMany(cascade = CascadeType.ALL)
 //    @JoinTable(
 //            name="user_jokes",
 //            joinColumns = @JoinColumn(
@@ -48,7 +43,7 @@ public class User {
 //                    name="joke_id", referencedColumnName = "id"
 //            )
 //    )
-//    private Collection<Integer> userJokes;
+//    private Collection<Joke> userJokes;
 
 
 
@@ -121,13 +116,13 @@ public class User {
         this.roles = roles;
     }
 
-    public Collection<Integer> getUserJokes() {
-        return userJokes;
-    }
-
-    public void setUserJokes(Collection<Integer> userJokes) {
-        this.userJokes = userJokes;
-    }
+//    public Collection<Joke> getUserJokes() {
+//        return userJokes;
+//    }
+//
+//    public void setUserJokes(Collection<Joke> userJokes) {
+//        this.userJokes = userJokes;
+//    }
 
     @Override
     public String toString() {
@@ -137,7 +132,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
-                ", userJokes=" + userJokes +
+//                ", userJokes=" + userJokes +
                 '}';
     }
 }

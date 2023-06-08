@@ -44,12 +44,13 @@
           </div>
 
           <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
-            <div th:each="jokeId:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
-              <div th:with="joke=${jokeRepository.getOne(jokeId)}">
-              <div th:text="${Joke.setup} + ' ' + ${Joke.punchline}" class="c-my-jokes-joke-text" name="Joke"></div>
-              <div class="c-my-jokes-joke-delete" name="delete"></div>
-              </div>
+            <div th:each="joke:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
+              <div class="c-my-jokes-joke-text">
+              <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="Joke"></div>
+                <br>
+              <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="Joke"></div>
             </div>
+              <div class="c-my-jokes-joke-delete" name="delete" name="delete-joke"></div>
           </div>
         </div>
       </div>
