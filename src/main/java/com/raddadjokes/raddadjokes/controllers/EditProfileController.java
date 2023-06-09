@@ -4,11 +4,13 @@ import com.raddadjokes.raddadjokes.data.UserRepository;
 import com.raddadjokes.raddadjokes.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -46,18 +48,20 @@ public class EditProfileController {
 
     @PostMapping("/profile/update")
     public String updateProfile(
-            @Valid User user,
+            @Valid @ModelAttribute("user") User user,
             BindingResult bindingResult,
-            HttpSession session,
+            Authentication authentication,
             Model model
     ) {
 
-        User sessionUser = (User) session.getAttribute("user");
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String email = userDetails.getUsername();
 
-        // Check if the logged-in user matches the edited profile
-        User curUser = userRepository.findById(sessionUser.getId()).orElse(null);
+        // Retrieve the profile from the repository based on the username
+        User curUser = userRepository.findByEmail(email);
 
-        if (curUser != null && curUser.getId() == sessionUser.getId()) {
+
+
 
             // Update the user entity with the updated profile fields
             if (bindingResult.hasErrors()) {
@@ -66,26 +70,25 @@ public class EditProfileController {
             } else {
                 // Update the user entity with new profile information if the fields are not blank
                 if (curUser.getUsername() != null && !curUser.getUsername().isEmpty()) {
-                    curUser.setUsername(curUser.getUsername());
+                    curUser.setUsername(user.getUsername());
                 }
                 // Update the profile with the new email
                 if (curUser.getEmail() != null && !curUser.getEmail().isEmpty()) {
-                    curUser.setEmail(curUser.getEmail());
+                    curUser.setEmail(user.getEmail());
                 }
                 if (curUser.getPassword() != null && !curUser.getPassword().isEmpty()) {
-                    String passwordHash = encoder.encode(curUser.getPassword());
+                    String passwordHash = encoder.encode(user.getPassword());
                     curUser.setPassword(passwordHash);
                 }
+                // Save the updated profile to the UserRepository
+                userRepository.save(curUser);
 
+                model.addAttribute("user", curUser);
+
+                // Redirect back to the profile page
+                return "redirect:/profile";
             }
 
-            // Save the updated profile to the UserRepository
-            userRepository.save(curUser);
-
-            session.setAttribute("user", curUser);
-
-            return "redirect:/profile"; // Redirect back to the profile page
-        }
         return "redirect:/edit-profile";
     }
 }
