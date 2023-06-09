@@ -75,6 +75,29 @@ h1 {
   font-family: cubano-sharp, sans-serif;
 }
 
+.c-my-jokes-joke-label-icon {
+  text-align: center;
+  font-family: "Fa Solid 900", sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.c-my-jokes-joke-label {
+  text-align: center;
+  height: 80%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #210140;
+}
+.c-my-jokes-joke-label-text {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+  }
+
+
 .c-edit-profile-form-button {
   width: 30%;
   height: 100%;
@@ -230,7 +253,7 @@ h1 {
   justify-content: flex-start;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 0;
+  padding-top: 0px;
   padding-bottom: 10px;
   display: flex;
   overflow: scroll;
@@ -586,7 +609,7 @@ h1 {
 
 .c-my-jokes-joke-div {
   width: 90%;
-  height: 15%;
+  height: 20%;
   max-height: 110px;
   min-height: 70px;
   background-color: #f2d4ae;
@@ -596,7 +619,10 @@ h1 {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
   display: flex;
 }
 
@@ -765,7 +791,7 @@ h1 {
 
 .c-my-jokes-text-only {
   width: 85%;
-  text-align: center;
+  text-align: left;
   flex-direction: column;
   justify-content: center;
   padding: 10px;

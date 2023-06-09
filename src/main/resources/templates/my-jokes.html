@@ -33,27 +33,44 @@
     <div class="c-main-div">
       <div class="c-main-div border">
         <div class="c-my-jokes-div">
-          <h2 class="c-my-jokes-header">Created Jokes</h2>
-          <div id="my-jokes-list-wrapper-empty" class="c-my-jokes-joke-list">
-            <div th:if="${userJokes.empty}" id="my-jokes-joke-box-none" class="c-my-jokes-joke-div">
+          <h2 class="c-my-jokes-header">Your Jokes</h2>
+          <div id="my-jokes-list-wrapper-empty" th:if="${userJokes.empty}" class="c-my-jokes-joke-list">
+            <div id="my-jokes-joke-box-none" class="c-my-jokes-joke-div">
               <div class="c-my-jokes-joke-text">You don&#x27;t have any jokes...
               <a class="link-2" th:href="@{/submit-joke}" href="/submit-joke">Click here to submit a joke!</a>
               </div>
-<!--              <div class="c-my-jokes-joke-delete"></div>-->
+              <div class="c-my-jokes-joke-delete"></div>
             </div>
           </div>
 
-          <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
-            <div th:each="joke:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
-              <div class="c-my-jokes-joke-text">
-              <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="Joke"></div>
-                <br>
-              <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="Joke"></div>
+        <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
+          <div th:each="joke:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
+
+
+            <div class="c-my-jokes-joke-label">
+              <div class="c-my-jokes-joke-label-icon"></div>
+              <div class="c-my-joke-label-text">Setup</div>
             </div>
-              <div class="c-my-jokes-joke-delete" name="delete" name="delete-joke"></div>
+            <div class="c-my-jokes-joke-text">
+
+              <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="joke-setup"></div>
+            </div>
+
+            <div class="c-my-jokes-joke-label">
+                <div class="c-my-jokes-joke-label-icon"></div>
+                <div class="c-my-joke-label-text">Punchline</div>
+              </div>
+
+            <div class="c-my-jokes-joke-text">
+              <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="joke-punchline"></div>
+            </div>
+
+            <div class="c-my-jokes-joke-delete" name="delete-joke"></div>
+          </div>
           </div>
         </div>
       </div>
+        </div>
     </div>
     <div id="nav-bar" class="c-nav-bar">
       <a id="nav-button-my-jokes" th:href="@{/my-jokes}" href="/my-jokes" aria-current="page" class="c-nav-bar-button active w-inline-block w--current">
