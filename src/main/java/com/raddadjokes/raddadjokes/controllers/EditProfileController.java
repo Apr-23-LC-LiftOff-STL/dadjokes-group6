@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -51,7 +53,8 @@ public class EditProfileController {
             @Valid @ModelAttribute("user") User user,
             BindingResult bindingResult,
             Authentication authentication,
-            Model model
+            Model model,
+            HttpServletRequest request
     ) {
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -86,7 +89,8 @@ public class EditProfileController {
                 model.addAttribute("user", curUser);
 
                 // Redirect back to the profile page
-                return "redirect:/profile";
+                request.getSession().invalidate();
+                return "redirect:/login";
             }
 
         return "redirect:/edit-profile";
