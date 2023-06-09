@@ -35,39 +35,45 @@
         <div class="c-edit-profile">
           <div class="c-profile-header">Edit Profile</div>
           <div class="c-edit-profile-form-block w-form">
-            <form id="edit-profile-form" name="wf-form-Edit-Profile-Form" data-name="Edit-Profile-Form" method="get" class="c-edit-profile-form">
+            <form id="edit-profile-form" name="wf-form-Edit-Profile-Form" method="post" class="c-edit-profile-form">
               <div class="c-edit-profile-fields">
                 <div class="c-profile-field-box">
-                  <div class="c-profile-form-input-label">Username:</div>
-                  <div class="c-edit-profile-form-input-box"><input type="text" class="c-edit-profile-form-input w-input" maxlength="256" name="Edit-Username-Field" data-name="Edit-Username-Field" placeholder="Display username" id="edit-profile-username"></div>
+                  <div class="c-profile-form-input-label">USERNAME:</div>
+                  <div class="c-edit-profile-form-input-box"><input type="text" class="c-edit-profile-form-input w-input" maxlength="25" name="Edit-Username-Field" placeholder="Enter your updated username:" id="edit-profile-username" required="" th:value="${user.username}"></div>
                 </div>
                 <div class="c-profile-field-box">
                   <div class="c-profile-form-input-label">EMAIL:</div>
-                  <div class="c-edit-profile-form-input-box"><input type="email" class="c-edit-profile-form-input w-input" maxlength="256" name="Edit-Email-Field" data-name="Edit-Email-Field" placeholder="Display email" id="edit-profile-email" required=""></div>
+                  <div class="c-edit-profile-form-input-box"><input type="email" class="c-edit-profile-form-input w-input" maxlength="75" name="Edit-Email-Field" placeholder="Enter a new email email address:" id="edit-profile-email" required="" th:value="${user.email}"></div>
                 </div>
+
                 <div class="c-profile-field-box">
-                  <div class="c-profile-form-input-label">Current PASSWORD:</div>
-                  <div class="c-edit-profile-form-input-box"><input type="password" class="c-edit-profile-form-input w-input" maxlength="256" name="Edit-Current-Password-Field" data-name="Edit-Current-Password-Field" placeholder="************************" id="edit-profile-current-password" required=""></div>
+                  <div class="c-profile-form-input-label">NEW PASSWORD (OPTIONAL):</div>
+                  <div class="c-edit-profile-form-input-box"><input type="password" class="c-edit-profile-form-input w-input" maxlength="75" name="Edit-New-Password-Field" data-name="Edit-New-Password-Field" placeholder="Enter a new password (ONLY IF YOU WANT TO CHANGE YOUR CURRENT PASSWORD)" id="edit-profile-new-password"></div>
                 </div>
-                <div class="c-profile-field-box">
-                  <div class="c-profile-form-input-label">New PASSWORD:</div>
-                  <div class="c-edit-profile-form-input-box"><input type="password" class="c-edit-profile-form-input w-input" maxlength="256" name="Edit-New-Password-Field" data-name="Edit-New-Password-Field" placeholder="************************" id="edit-profile-new-password" required=""></div>
+
                 </div>
-                <div class="c-profile-field-box">
-                  <div class="c-profile-form-input-label">CONFIRM New PASSWORD:</div>
-                  <div class="c-edit-profile-form-input-box"><input type="password" class="c-edit-profile-form-input w-input" maxlength="256" name="Edit-Confirm-Password-Field" data-name="Edit-Confirm-Password-Field" placeholder="************************" id="edit-profile-confirm-new-password" required=""></div>
-                </div>
+                <div class="c-profile-field-box-password">
+                  <div class="c-profile-form-label-password">ENTER YOUR CURRENT PASSWORD TO CONFIRM ALL CHANGES:
+                  </div>
+                  <div class="c-edit-profile-form-input-box-password">
+                    <input type="password" class="c-edit-profile-form-input w-input" maxlength="75" name="Edit-Current-Password-Field" placeholder="Enter your current password" id="edit-profile-current-password" required=""></div>
+
+<!--                <div class="c-profile-field-box">-->
+<!--                  <div class="c-profile-form-input-label">CONFIRM New PASSWORD:</div>-->
+<!--                  <div class="c-edit-profile-form-input-box"><input type="password" class="c-edit-profile-form-input w-input" maxlength="256" name="Edit-Confirm-Password-Field" data-name="Edit-Confirm-Password-Field" placeholder="************************" id="edit-profile-confirm-new-password" required=""></div>-->
+<!--                </div>-->
               </div>
-              <div class="c-edit-profile-form-buttons-wrapper"><input type="submit" id="edit-profile-save-changes-button" value="Save Changes" data-wait="Please wait..." class="c-edit-profile-form-button w-button">
+              <div class="c-edit-profile-form-buttons-wrapper">
+                <input type="submit" id="edit-profile-save-changes-button" value="Save Changes" data-wait="Please wait..." class="c-edit-profile-form-button w-button">
                 <a id="edit-profile-cancel-button" th:href="@{/profile}" href="/profile" class="c-edit-profile-form-button">Cancel</a>
               </div>
             </form>
-            <div class="w-form-done">
-              <div class="text-block-18">Your profile has been updated!</div>
-            </div>
-            <div class="w-form-fail">
-              <div class="text-block-19">Oops! Something went wrong while updating your profile.</div>
-            </div>
+<!--            <div th:if="${param.success}" class="w-form-done">-->
+<!--              <div class="text-block-18">Your profile has been updated!</div>-->
+<!--            </div>-->
+<!--            <div class="w-form-fail">-->
+<!--              <div class="text-block-19">Oops! Something went wrong while updating your profile.</div>-->
+<!--            </div>-->
           </div>
         </div>
       </div>

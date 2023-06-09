@@ -3,6 +3,8 @@ package com.raddadjokes.raddadjokes.controllers;
 import com.raddadjokes.raddadjokes.data.UserRepository;
 import com.raddadjokes.raddadjokes.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,12 +27,14 @@ public class EditProfileController {
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @GetMapping
-    public String showEditProfileForm(Model model, HttpSession session) {
+    public String showEditProfile(Model model, Authentication authentication) {
 
-        String username = (String) session.getAttribute("username");
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String email = userDetails.getUsername();
 
         // Retrieve the profile from the repository based on the username
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByEmail(email);
+
 
         // Add the profile to the model
         model.addAttribute("user", user);

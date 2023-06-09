@@ -155,9 +155,9 @@ h1 {
 
 .c-edit-profile-fields {
   width: 100%;
-  height: 100%;
+  height: 65%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: top;
   align-items: center;
   margin-bottom: auto;
   display: flex;
@@ -279,6 +279,14 @@ h1 {
   margin-bottom: 0;
 }
 
+.c-edit-profile-form-input-password {
+  height: auto;
+  width: 70%
+  cursor: text;
+  align-self: auto;
+  margin-bottom: 0;
+}
+
 .c-submit-joke-submit-button {
   width: 30%;
   height: 10%;
@@ -378,6 +386,20 @@ h1 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-top: 0px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+
+.c-profile-field-box-password {
+  width: 80%;
+  height: 30%;
+  min-height: 80px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 0;
   padding-top: 0;
@@ -848,6 +870,20 @@ h1 {
   font-weight: 800;
 }
 
+.c-profile-form-label-password{
+  height: auto;
+  color: #f0e8df;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
 .c-submit-joke {
   width: 100%;
   height: 100%;
@@ -1246,6 +1282,23 @@ h1 {
   box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
 }
 
+.c-edit-profile-form-input-box-password {
+  width: 75%;
+  height: auto;
+  min-height: 50px;
+  background-color: #259f06;
+  border: 8px solid #259f06;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
 .text-block-18 {
   font-family: Montserrat, sans-serif;
   font-size: 24px;
@@ -1455,6 +1508,8 @@ h1 {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+
 }
 
 #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c2-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c4-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c6-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c8-9e3ebd5b {
