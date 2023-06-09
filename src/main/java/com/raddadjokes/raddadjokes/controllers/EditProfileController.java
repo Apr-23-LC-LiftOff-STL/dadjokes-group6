@@ -17,14 +17,14 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/profile")
+@RequestMapping("/edit-profile")
 public class EditProfileController {
     @Autowired
     private UserRepository userRepository;
 
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    @GetMapping("/edit")
+    @GetMapping
     public String showEditProfileForm(Model model, HttpSession session) {
 
         String username = (String) session.getAttribute("username");
