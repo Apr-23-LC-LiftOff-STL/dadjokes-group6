@@ -42,15 +42,15 @@
                         <br>
                         <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="Joke"></div>
                     </div>
-        <!--            PUT CHECKBOXES HERE-->
                         <form method="post">
                             <div class="form-group">
-                                <th:block th:each="joke:${joke.setup}">
+                                <th:block th:each="joke:${joke.id}">
                                     <input type="checkbox" name="jokeId" th:value="${id}" class="form-control">
                                     <input type="submit" value="Delete" class="btn btn=danger">
                                 </th:block>
                             </div>
                         </form>
+                        <!--            PUT CHECKBOXES HERE-->
         <!--            END CHECKBOXES -->
                     </div>
                 </div>

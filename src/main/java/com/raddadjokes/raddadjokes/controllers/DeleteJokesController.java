@@ -47,11 +47,11 @@ public class DeleteJokesController {
     }
 
     @PostMapping("delete")
-    public String processDeleteJoke(@RequestParam(required = false) int[] jokeId) {
+    public String processDeleteJoke(@RequestParam Collection<Joke> userJokes,@RequestParam(required = false) int[] jokeId, Model model, ModelAttribute joke) {
 
-        if (jokeId != null) {
-            for (int id : jokeId) {
-                jokeRepository.deleteById(id);
+        if (userJokes != null) {
+            for (joke : userJokes) {
+                jokeRepository.deleteById();
             }
         }
         return ("redirect:/deleted");
