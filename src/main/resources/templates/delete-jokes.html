@@ -22,39 +22,49 @@
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body>
-  <div class="c-main-background">
-    <div class="c-header">
-      <a id="nav-button-profile" th:href="@{/profile}" href="/profile" class="c-nav-bar-button profile w-inline-block">
-        <div class="c-nav-bar-button-icon profile"></div>
-      </a>
-      <a id="nav-button-logo" th:href="@{/}" href="/" class="c-header-logo-link w-inline-block"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
-      <a th:href="@{/logout}" class="nav-link-logout" sec:authroize="isAuthenticated()">Logout</a>
-    </div>
-    <div class="c-main-div">
-      <div class="c-main-div border">
-        <div class="c-my-jokes-div">
-          <h2 class="c-my-jokes-header">Created Jokes</h2>
-          <div id="my-jokes-list-wrapper-empty" th:if="${userJokes.empty}" class="c-my-jokes-joke-list">
-            <div id="my-jokes-joke-box-none" class="c-my-jokes-joke-div">
-              <div class="c-my-jokes-joke-text">You don&#x27;t have any jokes...
+<div class="c-main-background">
+  <div class="c-header">
+    <a id="nav-button-profile" th:href="@{/profile}" href="/profile" class="c-nav-bar-button profile w-inline-block">
+      <div class="c-nav-bar-button-icon profile"></div>
+    </a>
+    <a id="nav-button-logo" th:href="@{/}" href="/" class="c-header-logo-link w-inline-block"><img src="images/RDD-Logo-Wide.png" sizes="(max-width: 479px) 100.00000762939453px, 150px" srcset="images/RDD-Logo-Wide-p-500.png 500w, images/RDD-Logo-Wide-p-800.png 800w, images/RDD-Logo-Wide-p-1080.png 1080w, images/RDD-Logo-Wide.png 1500w" alt="" class="c-header_logo"></a>
+    <a th:href="@{/logout}" class="nav-link-logout" sec:authroize="isAuthenticated()">Logout</a>
+  </div>
+  <div class="c-main-div">
+    <div class="c-main-div border">
+      <div class="c-my-jokes-div">
+        <h2 class="c-my-jokes-header">Created Jokes</h2>
+        <div id="my-jokes-list-wrapper-empty" th:if="${userJokes.empty}" class="c-my-jokes-joke-list">
+          <div id="my-jokes-joke-box-none" class="c-my-jokes-joke-div">
+            <div class="c-my-jokes-joke-text">You don&#x27;t have any jokes...
               <a class="link-2" th:href="@{/submit-joke}" href="/submit-joke">Click here to submit a joke!</a>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
-            <div th:each="joke:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
-              <div class="c-my-jokes-joke-text">
-                <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="Joke"></div>
-                  <br>
-                <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="Joke"></div>
-              </div>
-              <div class="c-my-jokes-joke-delete" name="delete-joke">
-                <a th:href="@{/delete-jokes}" href="/delete-jokes"></a>
-              </div>
+        <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
+          <div th:each="joke:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
+            <div class="c-my-jokes-joke-text">
+              <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="Joke"></div>
+              <br>
+              <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="Joke"></div>
             </div>
+<!--            PUT CHECKBOXES HERE-->
+              <form method="post">
+
+                <div class="form-group">
+                  <th:block th:each="joke : ${userJokes}">
+                    <label>
+                      <span th:text="${userJokes}"></span>
+                      <input type="checkbox" name="jokeId" value="${id}">
+                    </label>
+                  </th:block>
+                </div>
+
+                <input type="submit" value="Delete" class="btn btn=danger">
+              </form>
           </div>
-      </div>
+        </div>
       </div>
     </div>
     <div id="nav-bar" class="c-nav-bar">
