@@ -39,10 +39,9 @@
               <div class="c-my-jokes-joke-text">You don&#x27;t have any jokes...
               <a class="link-2" th:href="@{/submit-joke}" href="/submit-joke">Click here to submit a joke!</a>
               </div>
-              <div class="c-my-jokes-joke-delete"></div>
             </div>
           </div>
-
+<!---->
         <div th:unless="${userJokes.empty}" id="my-jokes-list-wrapper" class="c-my-jokes-joke-list">
           <div th:each="joke:${userJokes}" id="my-jokes-joke-box" class="c-my-jokes-joke-div" name="userJokes">
 
@@ -52,7 +51,7 @@
               <div class="c-my-joke-label-text">Setup</div>
             </div>
             <div class="c-my-jokes-joke-text">
-
+<!---->
               <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="joke-setup"></div>
             </div>
 
@@ -65,7 +64,9 @@
               <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="joke-punchline"></div>
             </div>
 
-            <div class="c-my-jokes-joke-delete" name="delete-joke"></div>
+            <div class="c-my-jokes-joke-delete" name="delete-joke">
+              <a th:href="@{/delete-jokes}" href="/delete-jokes"></a>
+<!---->
           </div>
           </div>
         </div>

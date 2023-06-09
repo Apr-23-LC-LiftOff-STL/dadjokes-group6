@@ -24,5 +24,6 @@ public interface JokeRepository extends JpaRepository<Joke, Integer> {
     Joke findJokeByApiId(String apiId);
     Collection<Joke> findJokeByUserId(Integer userId);
 //    Joke findJokeIdByUserId(Long userId);
+//    Joke deleteById(Integer id);
 
 }
