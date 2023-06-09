@@ -41,7 +41,7 @@
                         <div th:utext="${joke.setup}" class="c-my-jokes-text-only" name="Joke"></div>
                         <br>
                         <div th:text="${joke.punchline}" class="c-my-jokes-text-only" name="Joke"></div>
-                        <form method="post" action="/delete-jokes/delete">
+                        <form method="post" th:action="/delete-jokes/delete">
                             <div class="form-group">
                                 <input type="checkbox" name="jokeId" th:value="${joke.id}" class="form-control">
                             </div>
