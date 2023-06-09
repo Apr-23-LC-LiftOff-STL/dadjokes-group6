@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @Controller
-@RequestMapping("delete-jokes")
+@RequestMapping("/delete-jokes")
 public class DeleteJokesController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class DeleteJokesController {
     private UserRepository userRepository;
 
     //    6/8 Adria - Copied and modified from CodingEvents with LC Chris
-    @GetMapping
+    @GetMapping("delete")
     public String displayDeleteJokesPage(Model model, Authentication authentication) {
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -43,17 +43,17 @@ public class DeleteJokesController {
         model.addAttribute("user", user);
         model.addAttribute("userJokes", userJokes);
 
-        return ("/delete-jokes");
+        return ("delete-jokes/delete");
     }
 
-    @PostMapping("delete")
+    @PostMapping("deleted")
     public String processDeleteJoke(@RequestParam("jokeId") int[] jokeIds, Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
         for (int jokeId : jokeIds) {
             jokeRepository.deleteById(jokeId);
         }
-        return ("redirect:/deleted");
+        return ("delete-jokes/deleted");
     }
 //    @PostMapping("delete")
 //    public String processDeleteJoke(@RequestParam Collection<Joke> userJokes,@RequestParam(required = false) int[] jokeId, Model model, ModelAttribute joke) {
