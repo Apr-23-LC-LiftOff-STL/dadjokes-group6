@@ -28,7 +28,7 @@ public class RadDadJokesApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 //PLEASE COMMENT THIS METHOD OUT WHEN NOT TESTING THE API
-
+//
 //		// When the application runs, call dadjokes.io API
 //		String jokeJson = jokeFetcher.fetchData();
 //		System.out.println("***STRING RETURNED FROM API*** " + jokeJson);
