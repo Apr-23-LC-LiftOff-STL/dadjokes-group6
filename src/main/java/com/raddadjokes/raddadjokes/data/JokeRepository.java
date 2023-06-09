@@ -15,6 +15,9 @@ public interface JokeRepository extends JpaRepository<Joke, Integer> {
     @Query("SELECT j.id FROM Joke j WHERE user_id = :user_Id")
     Collection<Integer> findJokeIdsByUserId(@Param("user_Id") Integer userId);
 
+    @Query(value = "SELECT * FROM Joke ORDER BY RAND() LIMIT 1", nativeQuery = true)
+    Joke findRandomJoke();
+
     //List<Joke> findAllByUserJokesUserId(Long userId);
 
     Joke findJokeBySetup(String setup);

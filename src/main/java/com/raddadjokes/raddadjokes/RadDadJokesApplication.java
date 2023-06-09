@@ -40,5 +40,4 @@ public class RadDadJokesApplication implements CommandLineRunner {
 //		// Saves the apiJokes to the database
 //		jokeFetcher.saveApiJokes(apiJokes);
 	}
-
 }

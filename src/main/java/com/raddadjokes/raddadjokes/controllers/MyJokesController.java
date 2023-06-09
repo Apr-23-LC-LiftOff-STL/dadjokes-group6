@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Controller
-@RequestMapping("/my-jokes")
+@RequestMapping
 public class MyJokesController {
     @Autowired
     private JokeRepository jokeRepository;
