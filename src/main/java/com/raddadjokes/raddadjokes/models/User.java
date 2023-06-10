@@ -34,6 +34,7 @@ public class User {
             )
     )
     private Collection<Role> roles;
+
 //    @OneToMany(cascade = CascadeType.ALL)
 //    @JoinTable(
 //            name="user_jokes",

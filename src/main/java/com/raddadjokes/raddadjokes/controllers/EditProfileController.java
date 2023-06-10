@@ -9,10 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.servlet.http.HttpServlet;
@@ -54,7 +51,9 @@ public class EditProfileController {
             BindingResult bindingResult,
             Authentication authentication,
             Model model,
-            HttpServletRequest request
+            HttpServletRequest request,
+            @RequestParam(name = "newPassword", required = false) String newPassword,
+            @RequestParam(name = "currentPassword") String currentPassword
     ) {
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -64,7 +63,9 @@ public class EditProfileController {
         User curUser = userRepository.findByEmail(email);
 
 
-
+        if (!encoder.matches(currentPassword, curUser.getPassword())) {
+            bindingResult.rejectValue("currentPassword", "error.user", "Current password is incorrect.");
+        }
 
             // Update the user entity with the updated profile fields
             if (bindingResult.hasErrors()) {
@@ -79,8 +80,8 @@ public class EditProfileController {
                 if (curUser.getEmail() != null && !curUser.getEmail().isEmpty()) {
                     curUser.setEmail(user.getEmail());
                 }
-                if (curUser.getPassword() != null && !curUser.getPassword().isEmpty()) {
-                    String passwordHash = encoder.encode(user.getPassword());
+                if (newPassword != null && !newPassword.isEmpty()) {
+                    String passwordHash = encoder.encode(newPassword);
                     curUser.setPassword(passwordHash);
                 }
                 // Save the updated profile to the UserRepository
