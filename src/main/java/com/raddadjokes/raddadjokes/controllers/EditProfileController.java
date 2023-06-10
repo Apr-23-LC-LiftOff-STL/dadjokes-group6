@@ -53,7 +53,7 @@ public class EditProfileController {
             Model model,
             HttpServletRequest request,
             @RequestParam(name = "newPassword", required = false) String newPassword,
-            @RequestParam(name = "currentPassword") String currentPassword
+            @RequestParam(name = "password") String currentPassword
     ) {
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
