@@ -34,36 +34,38 @@
         <div class="c-joke">
           <div class="c-joke-content">
             <div class="c-div-text-wrapper-cream">
-              <div id="joke-text" class="c-joke-text">What is Spiderman&#x27;s dream job? Web designer.</div>
+              <div id="joke-text" class="c-joke-text">Displays joke's setup and punchline.</div>
+<!--              th:text="${joke.setup} + ' ' + ${joke.punchline}"-->
             </div>
             <div class="c-joke_credit">
               <div class="c-joke_credit_text">Joke submitted by: </div>
               <div class="c-joke_credit_text_spacer"></div>
-              <div id="joke-credit-username-text" class="c-joke-credit-username-text">Username</div>
+              <div id="joke-credit-username-text" class="c-joke-credit-username-text">Displays joke's author.</div>
+<!--              th:text="${jokeAuthor}"-->
             </div>
           </div>
-          <div class="c-joke_action_post">
-            <div class="c-joke-action">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Rad</div>
-            </div>
-            <div class="c-joke-action">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Bad</div>
-            </div>
-            <div class="c-joke-action">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Save</div>
-            </div>
-            <div class="c-joke-action hide">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Flag</div>
-            </div>
-            <div id="joke-share" class="c-joke-action hide">
-              <div class="c-joke_action_icon"></div>
-              <div class="c-joke_action_text">Share</div>
-            </div>
-          </div>
+<!--          <div class="c-joke_action_post">-->
+<!--            <div class="c-joke-action">-->
+<!--              <div class="c-joke_action_icon"></div>-->
+<!--              <div class="c-joke_action_text">Rad</div>-->
+<!--            </div>-->
+<!--            <div class="c-joke-action">-->
+<!--              <div class="c-joke_action_icon"></div>-->
+<!--              <div class="c-joke_action_text">Bad</div>-->
+<!--            </div>-->
+<!--            <div class="c-joke-action">-->
+<!--              <div class="c-joke_action_icon"></div>-->
+<!--              <div class="c-joke_action_text">Save</div>-->
+<!--            </div>-->
+<!--            <div class="c-joke-action hide">-->
+<!--              <div class="c-joke_action_icon"></div>-->
+<!--              <div class="c-joke_action_text">Flag</div>-->
+<!--            </div>-->
+<!--            <div id="joke-share" class="c-joke-action hide">-->
+<!--              <div class="c-joke_action_icon"></div>-->
+<!--              <div class="c-joke_action_text">Share</div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
         <div id="get-joke-next-joke-button" class="c-big-button">
           <div class="c-big-button-text">Another One?</div>
