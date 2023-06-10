@@ -32,20 +32,22 @@
     </div>
     <div class="c-main-div">
       <div class="c-main-div border">
-<!--        <div th:unless="${userJokes.empty}" id="get-joke-list-wrapper" class="c-get-joke-joke-list">-->
           <div id="get-joke-joke-box" class="c-get-joke-joke-div" name="userJokes">
             <h1 class="heading">From the Dad-a-base...</h1>
               <div class="c-joke">
                 <div class="c-joke-content">
                   <div class="c-div-text-wrapper-cream">
                     <div id="joke-text" class="c-joke-text">
-                      <div th:text="${joke.setup}" class="c-get-joke-text-only" name="joke-setup"></div>
+                      <div class="c-get-joke-text-only" name="joke-setup">
+                        <span th:text="${joke.setup}"></span>
+                        <span th:text="${joke.punchline}"></span>
+                      </div>
                     </div>
                   </div>
                 <div class="c-joke_credit">
                   <div class="c-joke_credit_text">Joke submitted by: </div>
                   <div class="c-joke_credit_text_spacer"></div>
-                  <div id="joke-credit-username-text" class="c-joke-credit-username-text">Username</div>
+                  <div th:text='${user.username}' id="joke-credit-username-text" class="c-joke-credit-username-text"></div>
                 </div>
               </div>
               <div class="c-joke_action_post">
@@ -72,8 +74,7 @@
               </div>
             </div>
             <div id="get-joke-next-joke-button" class="c-big-button">
-              <div class="c-big-button-text">Another One?</div>
-<!--            </div>-->
+              <button onclick="window.location.reload()" class="c-big-button-text">Another One?</button>
           </div>
         </div>
         <div id="nav-bar" class="c-nav-bar">

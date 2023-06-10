@@ -58,14 +58,6 @@ public class Joke {
         this.userId = userId;
     }
 
-//    public Integer getUserId() {
-//        return userId;
-//    }
-
-//    public void setUserId(Integer userId) {
-//        this.userId = userId;
-//    }
-
     public String getSetup() {
         return setup;
     }

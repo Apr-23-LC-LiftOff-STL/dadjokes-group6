@@ -9,10 +9,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
-import java.util.Collection;
 
 
 @Controller
@@ -25,25 +24,21 @@ public class GetJokeController {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping
     public String showGetJoke(Model model, Authentication authentication){
+
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
-        System.out.println(user.getId());
-        Integer userId = user.getId();
 
 
-//        Joke randJoke = jokeRepository.findJokeByRandId();
-//        for(Joke joke:randJoke){
-//            model.addAttribute("joke", joke);
-//            System.out.println(joke.toString());
-//        }
-        model.addAttribute("user", user);
-        Joke randomJoke = jokeRepository.findRandomJoke();
-        model.addAttribute("jokes", randomJoke);
+        Joke joke = jokeRepository.findRandomJoke();
+        System.out.println(joke.toString());
+        model.addAttribute("joke", joke);
+        model.addAttribute("user", userRepository.findUserById(joke.getUserId()));
 
-        return ("/");
+        return ("index");
     }
 
 }
