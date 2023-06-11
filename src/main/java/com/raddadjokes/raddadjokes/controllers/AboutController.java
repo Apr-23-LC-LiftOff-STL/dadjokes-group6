@@ -15,6 +15,6 @@ public class AboutController {
     public String showAbout(Model model, HttpSession session){
 
 
-        return ("/about");
+        return ("about");
     }
 }
