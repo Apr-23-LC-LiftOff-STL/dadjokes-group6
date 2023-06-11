@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/my-jokes")
 public class MyJokesController {
     @Autowired
     private JokeRepository jokeRepository;
@@ -44,7 +44,7 @@ public class MyJokesController {
 
         Collection<Joke> userJokes = jokeRepository.findJokeByUserId(userId);
         for(Joke joke:userJokes){
-        model.addAttribute("joke", joke);
+            model.addAttribute("joke", joke);
             System.out.println(joke.toString());
         }
 //        System.out.println(userJokes);

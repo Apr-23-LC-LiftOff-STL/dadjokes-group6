@@ -3,34 +3,39 @@ package com.raddadjokes.raddadjokes.controllers;
 import com.raddadjokes.raddadjokes.data.UserRepository;
 import com.raddadjokes.raddadjokes.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
 
 @Controller
-@RequestMapping("/profile")
+@RequestMapping("/edit-profile")
 public class EditProfileController {
     @Autowired
     private UserRepository userRepository;
 
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    @GetMapping("/edit")
-    public String showEditProfileForm(Model model, HttpSession session) {
+    @GetMapping
+    public String showEditProfile(Model model, Authentication authentication) {
 
-        String username = (String) session.getAttribute("username");
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String email = userDetails.getUsername();
 
         // Retrieve the profile from the repository based on the username
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByEmail(email);
+
 
         // Add the profile to the model
         model.addAttribute("user", user);
@@ -42,46 +47,53 @@ public class EditProfileController {
 
     @PostMapping("/profile/update")
     public String updateProfile(
-            @Valid User user,
+            @Valid @ModelAttribute("user") User user,
             BindingResult bindingResult,
-            HttpSession session,
-            Model model
+            Authentication authentication,
+            Model model,
+            HttpServletRequest request,
+            @RequestParam(name = "newPassword", required = false) String newPassword,
+            @RequestParam(name = "password") String currentPassword
     ) {
 
-        User sessionUser = (User) session.getAttribute("user");
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String email = userDetails.getUsername();
 
-        // Check if the logged-in user matches the edited profile
-        User curUser = userRepository.findById(sessionUser.getId()).orElse(null);
+        // Retrieve the profile from the repository based on the username
+        User curUser = userRepository.findByEmail(email);
 
-        if (curUser != null && curUser.getId() == sessionUser.getId()) {
 
-            // Update the user entity with the updated profile fields
-            if (bindingResult.hasErrors()) {
-                // If there are validation errors, add them to the model
-                model.addAttribute("validationErrors", bindingResult.getAllErrors());
-            } else {
-                // Update the user entity with new profile information if the fields are not blank
-                if (curUser.getUsername() != null && !curUser.getUsername().isEmpty()) {
-                    curUser.setUsername(curUser.getUsername());
-                }
-                // Update the profile with the new email
-                if (curUser.getEmail() != null && !curUser.getEmail().isEmpty()) {
-                    curUser.setEmail(curUser.getEmail());
-                }
-                if (curUser.getPassword() != null && !curUser.getPassword().isEmpty()) {
-                    String passwordHash = encoder.encode(curUser.getPassword());
-                    curUser.setPassword(passwordHash);
-                }
+        if (!encoder.matches(currentPassword, curUser.getPassword())) {
+            bindingResult.rejectValue("currentPassword", "error.user", "Current password is incorrect.");
+        }
 
+        // Update the user entity with the updated profile fields
+        if (bindingResult.hasErrors()) {
+            // If there are validation errors, add them to the model
+            model.addAttribute("validationErrors", bindingResult.getAllErrors());
+        } else {
+            // Update the user entity with new profile information if the fields are not blank
+            if (curUser.getUsername() != null && !curUser.getUsername().isEmpty()) {
+                curUser.setUsername(user.getUsername());
             }
-
+            // Update the profile with the new email
+            if (curUser.getEmail() != null && !curUser.getEmail().isEmpty()) {
+                curUser.setEmail(user.getEmail());
+            }
+            if (newPassword != null && !newPassword.isEmpty()) {
+                String passwordHash = encoder.encode(newPassword);
+                curUser.setPassword(passwordHash);
+            }
             // Save the updated profile to the UserRepository
             userRepository.save(curUser);
 
-            session.setAttribute("user", curUser);
+            model.addAttribute("user", curUser);
 
-            return "redirect:/profile"; // Redirect back to the profile page
+            // Redirect back to the profile page
+            request.getSession().invalidate();
+            return "redirect:/login";
         }
+
         return "redirect:/edit-profile";
     }
 }
