@@ -28,16 +28,16 @@ public class RadDadJokesApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 //PLEASE COMMENT THIS METHOD OUT WHEN NOT TESTING THE API
-//
-//		// When the application runs, call dadjokes.io API
-//		String jokeJson = jokeFetcher.fetchData();
-//		System.out.println("***STRING RETURNED FROM API*** " + jokeJson);
-//
-//		// Parses the http string into a list of jokes
-//		List<Joke> apiJokes = jokeFetcher.parseJsonToJokes(jokeJson);
-//		System.out.println("***PARSED API JOKES*** " + apiJokes.toString());
-//
-//		// Saves the apiJokes to the database
-//		jokeFetcher.saveApiJokes(apiJokes);
+
+		// When the application runs, call dadjokes.io API
+		String jokeJson = jokeFetcher.fetchData();
+		System.out.println("***STRING RETURNED FROM API*** " + jokeJson);
+
+		// Parses the http string into a list of jokes
+		List<Joke> apiJokes = jokeFetcher.parseJsonToJokes(jokeJson);
+		System.out.println("***PARSED API JOKES*** " + apiJokes.toString());
+
+		// Saves the apiJokes to the database
+		jokeFetcher.saveApiJokes(apiJokes);
 	}
 }
