@@ -44,7 +44,7 @@
 }
 
 h1 {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 10px;
   font-size: 38px;
   font-weight: bold;
@@ -385,6 +385,51 @@ h1 {
   display: flex;
 }
 
+.c-profile-field-box-password {
+  width: 80%;
+  height: 30%;
+  min-height: 80px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+
+.c-profile-form-label-password{
+  height: auto;
+  color: #f0e8df;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: cubano-sharp, sans-serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.c-edit-profile-form-input-box-password {
+  width: 75%;
+  height: auto;
+  min-height: 50px;
+  background-color: #259f06;
+  border: 8px solid #259f06;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+}
+
 .c-main-div {
   width: 80%;
   height: 70vh;
@@ -395,8 +440,8 @@ h1 {
   flex-flow: column;
   flex: 0 auto;
   order: 0;
-  justify-content: center;
-  align-self: center;
+  justify-content: top;
+  align-self: top;
   align-items: center;
   margin-top: 10px;
   margin-left: auto;
@@ -443,9 +488,9 @@ h1 {
   border-color: #f0e8df;
   border-radius: 17px;
   flex-flow: column;
-  justify-content: center;
+  justify-content: top;
   align-self: center;
-  align-items: center;
+  align-items: top;
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0px;
@@ -846,6 +891,12 @@ h1 {
   margin-bottom: 5px;
   font-family: cubano-sharp, sans-serif;
   font-size: 20px;
+  font-weight: 800;
+}
+
+.c-profile-form-input-label {
+font-family: cubano-sharp, sans-serif;
+font-size: 20px;
   font-weight: 800;
 }
 
@@ -1294,8 +1345,8 @@ h1 {
   color: #f0e8df;
   text-align: center;
   text-shadow: 0 3px 1px rgba(0, 0, 0, .2);
-  margin-top: auto;
-  margin-bottom: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-family: cubano-sharp, sans-serif;
   display: block;
 }
@@ -1354,7 +1405,7 @@ h1 {
     height: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
-    justify-content: space-around;
+    justify-content: top;
   }
 
   .c-submit-joke-punchline-field {
@@ -1423,6 +1474,8 @@ h1 {
 
   .c-joke {
     width: 95%;
+    height: 100%;
+    padding-top: 30px;
   }
 
   .c-joke_credit_text {
@@ -1456,6 +1509,23 @@ h1 {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+.c-get-joke-joke-div{
+width: 100%;
+height: 70%;
+display: flex;
+flex-direction: column;
+align-items: top;
+}
+
+.c-get-new-joke{
+display: flex;
+flex-direction: column;
+height: 30%;
+width: 100%;
+align-items: bottom;
+padding-bottom: 20px;
 }
 
 #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c2-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c4-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c6-9e3ebd5b, #w-node-be43a1c1-811e-a98c-c07c-ad6290f7d1c8-9e3ebd5b {

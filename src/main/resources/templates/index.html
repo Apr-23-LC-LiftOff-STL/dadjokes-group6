@@ -50,33 +50,35 @@
                   <div th:text='${user.username}' id="joke-credit-username-text" class="c-joke-credit-username-text"></div>
                 </div>
               </div>
-              <div class="c-joke_action_post">
-                <div class="c-joke-action">
-                  <div class="c-joke_action_icon"></div>
-                  <div class="c-joke_action_text">Rad</div>
-                </div>
-                <div class="c-joke-action">
-                  <div class="c-joke_action_icon"></div>
-                  <div class="c-joke_action_text">Bad</div>
-                </div>
-                <div class="c-joke-action">
-                  <div class="c-joke_action_icon"></div>
-                  <div class="c-joke_action_text">Save</div>
-                </div>
-                <div class="c-joke-action hide">
-                  <div class="c-joke_action_icon"></div>
-                  <div class="c-joke_action_text">Flag</div>
-                </div>
-                <div id="joke-share" class="c-joke-action hide">
-                  <div class="c-joke_action_icon"></div>
-                  <div class="c-joke_action_text">Share</div>
-                </div>
+<!--              <div class="c-joke_action_post">-->
+<!--                <div class="c-joke-action">-->
+<!--                  <div class="c-joke_action_icon"></div>-->
+<!--                  <div class="c-joke_action_text">Rad</div>-->
+<!--                </div>-->
+<!--                <div class="c-joke-action">-->
+<!--                  <div class="c-joke_action_icon"></div>-->
+<!--                  <div class="c-joke_action_text">Bad</div>-->
+<!--                </div>-->
+<!--                <div class="c-joke-action">-->
+<!--                  <div class="c-joke_action_icon"></div>-->
+<!--                  <div class="c-joke_action_text">Save</div>-->
+<!--                </div>-->
+<!--                <div class="c-joke-action hide">-->
+<!--                  <div class="c-joke_action_icon"></div>-->
+<!--                  <div class="c-joke_action_text">Flag</div>-->
+<!--                </div>-->
+<!--                <div id="joke-share" class="c-joke-action hide">-->
+<!--                  <div class="c-joke_action_icon"></div>-->
+<!--                  <div class="c-joke_action_text">Share</div>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+        </div>
+            <div class="c-get-new-joke">
+              <div id="get-joke-next-joke-button" class="c-big-button">
+                <button onclick="window.location.reload()" class="c-big-button-text">Another One?</button>
               </div>
             </div>
-            <div id="get-joke-next-joke-button" class="c-big-button">
-              <button onclick="window.location.reload()" class="c-big-button-text">Another One?</button>
-          </div>
-        </div>
         <div id="nav-bar" class="c-nav-bar">
           <a id="nav-button-my-jokes" th:href="@{/my-jokes}" href="/my-jokes" class="c-nav-bar-button w-inline-block">
             <div class="c-nav-bar-button-icon"></div>

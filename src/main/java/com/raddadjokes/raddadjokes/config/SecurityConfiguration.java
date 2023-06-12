@@ -24,10 +24,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     public SecurityConfiguration(){}
 
-//    public SecurityConfiguration(UserService userService, BCryptPasswordEncoder passwordEncoder) {
-//        this.userService = userService;
-//        this.passwordEncoder = passwordEncoder;
-//    }
 
     @Autowired
     public void setUserService(UserService userService) {
